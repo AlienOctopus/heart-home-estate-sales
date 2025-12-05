@@ -80,7 +80,7 @@ export const HomePage: React.FC = () => {
                             But standing in that living room, realizing a lifetime of everything is now yours to figure out.
                         </p>
                         <p className="text-base sm:text-lg md:text-xl text-olive/60 leading-relaxed mb-6 sm:mb-8">
-                            The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still carrying everything else. You don't have to do this alone.
+                            The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still dealing with everything else. You don't have to do this alone.
                         </p>
                         {/* Primary CTA - For families needing help */}
                         <div className="mb-2">
