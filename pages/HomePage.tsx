@@ -45,8 +45,8 @@ export const HomePage: React.FC = () => {
                         </span>
                     </div>
 
-                    {/* Main headline - tighter mobile spacing */}
-                    <h1 className="font-display text-[2.25rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.92] sm:leading-[0.95] tracking-tighter text-olive mb-5 sm:mb-6 max-w-4xl">
+                    {/* Main headline - bold weight for impact */}
+                    <h1 className="font-display font-semibold text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.9] sm:leading-[0.95] tracking-tighter text-olive mb-5 sm:mb-6 max-w-4xl">
                         <span className="block">This Is the Part</span>
                         <span className="block">No One Prepares</span>
                         <span className="block">You For</span>
