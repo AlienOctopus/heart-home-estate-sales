@@ -12,9 +12,8 @@ dist/
 dist-ssr/
 build/
 
-# Source assets (not needed in production)
-logos/
-images/
+# Source assets (raw files not needed in production)
+/logos/
 
 # AI Studio artifacts
 metadata.json
