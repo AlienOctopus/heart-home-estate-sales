@@ -20,15 +20,15 @@ export const HomePage: React.FC = () => {
                     <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-10 max-w-5xl">
                         <span className="block">For East Bay Families</span>
                         <span className="block">Who Just Inherited a</span>
-                        <span className="block">House Full of <span className="text-sage italic font-light">"Everything"</span></span>
+                        <span className="block">House Full of <span className="text-sage italic">"Everything"</span></span>
                     </h1>
 
                     {/* The hook - emotional, specific - max-w-xl for proper line length */}
                     <div className="max-w-xl mb-16">
-                        <p className="font-display text-2xl md:text-3xl lg:text-4xl text-olive/90 leading-snug tracking-tight font-light mb-8">
+                        <p className="font-display text-2xl md:text-3xl lg:text-4xl text-olive/90 leading-snug tracking-tight mb-8">
                             You shouldn't have to spend the next 6 weekends sorting through your mother's china.
                         </p>
-                        <p className="text-lg md:text-xl text-olive/60 font-light leading-relaxed">
+                        <p className="text-lg md:text-xl text-olive/60 leading-relaxed">
                             You're grieving. You're exhausted. And now you're standing in a 3,200 sq. ft. house 
                             with 40 years of accumulated stuff—and somehow you're supposed to figure out what the 
                             Henredon dining set is worth, who wants the silver, and what to do with the 47 boxes 
@@ -48,7 +48,7 @@ export const HomePage: React.FC = () => {
             {/* The Permission Statement - increased padding */}
             <section className="py-32 md:py-48 px-6 md:px-12 lg:px-20 bg-olive text-cream">
                 <div className="max-w-[1000px] mx-auto text-center">
-                    <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-snug tracking-tight font-light">
+                    <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-snug tracking-tight">
                         You don't have time for this.<br/>
                         <span className="text-cream/60">You shouldn't have to make time for this.</span>
                     </p>
@@ -62,7 +62,7 @@ export const HomePage: React.FC = () => {
                         <div className="mb-16">
                             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-olive mb-4">
                                 Here's what happens<br/>
-                                <span className="text-sage italic font-light">when you call us:</span>
+                                <span className="text-sage italic">when you call us:</span>
                             </h2>
                         </div>
 
@@ -92,7 +92,7 @@ export const HomePage: React.FC = () => {
                                             <h3 className="font-display text-xl md:text-2xl lg:text-3xl text-olive tracking-tight mb-2">
                                                 {step.title}
                                             </h3>
-                                            <p className="text-lg text-olive/60 font-light leading-relaxed max-w-lg">
+                                            <p className="text-lg text-olive/60 leading-relaxed max-w-lg">
                                                 {step.desc}
                                             </p>
                                         </div>
@@ -118,7 +118,7 @@ export const HomePage: React.FC = () => {
             {/* The Distinction */}
             <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-cream-dark">
                 <div className="max-w-[900px] mx-auto">
-                    <div className="space-y-8 text-lg md:text-xl text-olive/80 font-light leading-relaxed">
+                    <div className="space-y-8 text-lg md:text-xl text-olive/80 leading-relaxed">
                         <p>
                             <strong className="font-display text-2xl md:text-3xl text-olive block mb-4">
                                 This is not a "clean-out" service.
@@ -137,7 +137,7 @@ export const HomePage: React.FC = () => {
             {/* Service Area + Selectivity - simplified prose instead of pills */}
             <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
                 <div className="max-w-[900px] mx-auto">
-                    <p className="text-lg md:text-xl text-olive/70 font-light leading-relaxed mb-8">
+                    <p className="text-lg md:text-xl text-olive/70 leading-relaxed mb-8">
                         We serve Blackhawk, Danville, Alamo, Walnut Creek, Brentwood, Pleasanton, 
                         Ruby Hill, and Livermore—and we're selective about the estates we take.
                     </p>
@@ -160,7 +160,7 @@ export const HomePage: React.FC = () => {
                         <h2 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6">
                             Call {DATA.config.owner} directly.
                         </h2>
-                        <p className="text-xl md:text-2xl text-cream/70 font-light leading-relaxed">
+                        <p className="text-xl md:text-2xl text-cream/70 leading-relaxed">
                             No voicemail maze. No "request a quote" form.<br/>
                             Just a conversation with someone who's done this 200+ times.
                         </p>
