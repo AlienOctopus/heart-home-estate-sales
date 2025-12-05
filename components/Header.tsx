@@ -74,7 +74,7 @@ export const Header: React.FC = () => {
                             <img
                                 src="/images/logo-badge.webp"
                                 alt="Heart & Home Estate Sales"
-                                className={`w-full h-full object-cover mix-blend-multiply transition-all duration-300 group-hover:scale-110 ${menuOpen ? 'brightness-[2] contrast-75' : ''}`}
+                                className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-110 ${menuOpen ? '' : 'mix-blend-multiply'}`}
                                 width={800}
                                 height={800}
                             />
