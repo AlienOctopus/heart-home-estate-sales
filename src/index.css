@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+/* Custom theme configuration */
+@theme {
+  /* Colors */
+  --color-cream: #F7F5F0;
+  --color-cream-dark: #EBE8E1;
+  --color-cream-glass: rgba(247, 245, 240, 0.8);
+
+  --color-olive: #1F1E19;
+  --color-olive-muted: #5C5A48;
+  --color-olive-light: #8C8A75;
+
+  --color-sage: #A1997E;
+  --color-clay: #C2B8A3;
+  --color-charcoal: #1A1915;
+
+  /* Typography */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  /* Letter Spacing */
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* Line Height */
+  --leading-none: 0.9;
+  --leading-tight: 1;
+  --leading-snug: 1.2;
+  --leading-relaxed: 1.65;
+  --leading-loose: 2;
+
+  /* Custom animations */
+  --animate-fade-up: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-scale-in: scaleIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-marquee: marquee 25s linear infinite;
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  0% { opacity: 0; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility classes */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Optical Borders */
+.border-optical {
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06), inset 0 1px 0 0 rgba(255,255,255,0.5);
+}
+
+/* Focus-visible for accessibility */
+:focus-visible {
+  outline: 2px solid #A1997E;
+  outline-offset: 2px;
+}
+
+/* Remove default focus for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  padding: 8px 16px;
+  background: #1F1E19;
+  color: #F7F5F0;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Noise background utility */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
