@@ -77,15 +77,32 @@ export const HomePage: React.FC = () => {
                             But standing in that living room, realizing a lifetime of everything is now yours to figure out.
                         </p>
                         <p className="text-lg md:text-xl text-olive/60 leading-relaxed mb-8">
-                            The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still carrying everything else. You don't have to do this alone. And you don't have to do it this weekend.
+                            The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still carrying everything else. You don't have to do this alone.
                         </p>
+                        {/* Primary CTA - For families needing help */}
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
-                            className="inline-flex items-center gap-3 bg-olive text-cream px-8 py-4 rounded-full font-medium hover:bg-olive-muted transition-colors group"
+                            className="inline-flex items-center justify-center gap-3 bg-olive text-cream w-full sm:w-auto px-8 py-4 rounded-full font-medium hover:bg-olive-muted transition-colors group min-h-[52px]"
                         >
                             <Icon name="phone" s={18} />
                             <span className="font-mono tracking-wide">{DATA.config.phone}</span>
                         </a>
+
+                        {/* Secondary CTA - For shoppers looking for sales */}
+                        <div className="mt-6 pt-5 border-t border-olive/10">
+                            <p className="text-sm text-olive/50 mb-3">Looking for estate sales in the East Bay?</p>
+                            <a
+                                href="/alerts"
+                                className="inline-flex items-center gap-2 text-sage hover:text-olive transition-colors text-sm font-medium group py-3 -my-3 pr-2"
+                            >
+                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                                </svg>
+                                <span>Get notified about upcoming sales</span>
+                                <Icon name="right" s={14} className="group-hover:translate-x-1 transition-transform" />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Scroll indicator */}
@@ -295,7 +312,7 @@ export const HomePage: React.FC = () => {
             <Testimonials />
 
             {/* Final CTA - Phone First, No Forms */}
-            <section className="py-20 md:py-32 px-6 md:px-12 lg:px-20 bg-olive text-cream">
+            <section className="py-20 md:py-32 px-6 md:px-12 lg:px-20 text-cream" style={{ backgroundColor: '#393821' }}>
                 <div className="max-w-[900px] mx-auto">
                     <div className="mb-10 md:mb-12">
                         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 md:mb-6">
