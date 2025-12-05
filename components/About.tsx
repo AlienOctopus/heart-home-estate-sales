@@ -42,7 +42,7 @@ export const About: React.FC = () => {
                         </div>
                         
                         <div className="relative z-10">
-                            <div className="font-mono text-xs uppercase tracking-widest text-sage mb-8">A Note from the Owner</div>
+                            <div className="text-xs font-medium uppercase tracking-widest text-sage mb-8">A Note from the Owner</div>
                             
                             <h2 className="font-display text-5xl md:text-7xl text-olive mb-10 leading-none tracking-tight">
                                 This isn't just business.<br/>
@@ -65,7 +65,7 @@ export const About: React.FC = () => {
                             <div className="mt-16 flex items-center gap-6">
                                 <div className="font-display italic text-4xl text-olive tracking-tight">Sarah Jenkins</div>
                                 <div className="h-px w-24 bg-olive/10" />
-                                <div className="font-mono text-xs text-olive-muted uppercase tracking-widest">
+                                <div className="text-xs font-medium text-olive-muted uppercase tracking-widest">
                                     {DATA.config.creds}
                                 </div>
                             </div>

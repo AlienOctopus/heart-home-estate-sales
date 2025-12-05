@@ -71,7 +71,7 @@ export const SellerInfo: React.FC = () => {
                 {/* Intro */}
                 <div className="grid md:grid-cols-2 gap-16 mb-24">
                     <div>
-                        <span className="inline-block py-1 px-3 border border-sage/30 rounded-full font-mono text-xs text-sage uppercase tracking-widest mb-6">Services</span>
+                        <span className="inline-block py-1 px-3 border border-sage/30 rounded-full text-xs font-medium text-sage uppercase tracking-widest mb-6">Services</span>
                         <h2 className="font-display text-6xl md:text-8xl leading-none tracking-tight">
                             We handle <br/> <span className="text-sage italic font-light">the weight</span> <br/> of it all.
                         </h2>
@@ -91,7 +91,7 @@ export const SellerInfo: React.FC = () => {
                             <div className="h-px w-full bg-cream/20 mb-8 group-hover:bg-sage transition-colors duration-500 relative">
                                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-sage opacity-0 group-hover:opacity-100 transition-opacity" />
                             </div>
-                            <div className="font-mono text-4xl text-sage/40 mb-4 group-hover:text-sage transition-colors">0{s.n}</div>
+                            <div className="text-4xl font-semibold text-sage/40 mb-4 group-hover:text-sage transition-colors tabular-nums">0{s.n}</div>
                             <h4 className="font-display text-2xl mb-3 tracking-tight">{s.t}</h4>
                             <p className="text-cream/60 leading-relaxed text-base font-light pr-4">{s.d}</p>
                         </div>
@@ -115,7 +115,7 @@ export const SellerInfo: React.FC = () => {
                                         <Icon name="phone" s={20} />
                                     </div>
                                     <div>
-                                        <div className="font-mono text-xs uppercase tracking-widest text-olive-muted">Call Us</div>
+                                        <div className="text-xs font-medium uppercase tracking-widest text-olive-muted">Call Us</div>
                                         <div className="font-display text-xl tracking-tight">{DATA.config.phone}</div>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@ export const SellerInfo: React.FC = () => {
                                         <span className="font-serif italic text-xl">@</span>
                                     </div>
                                     <div>
-                                        <div className="font-mono text-xs uppercase tracking-widest text-olive-muted">Email</div>
+                                        <div className="text-xs font-medium uppercase tracking-widest text-olive-muted">Email</div>
                                         <div className="font-display text-xl tracking-tight">{DATA.config.email}</div>
                                     </div>
                                 </div>
@@ -134,7 +134,7 @@ export const SellerInfo: React.FC = () => {
                         {!sent ? (
                             <div className="space-y-12 pt-4">
                                 <div className="group relative">
-                                    <label className={`block font-mono text-xs uppercase tracking-widest mb-2 transition-colors ${errors.n ? 'text-red-500' : 'text-olive-muted'}`}>
+                                    <label className={`block text-xs font-medium uppercase tracking-widest mb-2 transition-colors ${errors.n ? 'text-red-500' : 'text-olive-muted'}`}>
                                         Your Name
                                     </label>
                                     {/* Typography Shift: Serif Input */}
@@ -153,14 +153,14 @@ export const SellerInfo: React.FC = () => {
                                         placeholder="Jane Doe"
                                     />
                                     {errors.n && (
-                                        <div className="absolute right-0 top-1/2 translate-y-2 text-xs font-mono text-red-500 uppercase tracking-widest animate-fade-up" style={{ animationDuration: '0.3s' }}>
+                                        <div className="absolute right-0 top-1/2 translate-y-2 text-xs font-medium text-red-500 uppercase tracking-widest animate-fade-up" style={{ animationDuration: '0.3s' }}>
                                             {errors.n}
                                         </div>
                                     )}
                                 </div>
 
                                 <div className="group relative">
-                                    <label className={`block font-mono text-xs uppercase tracking-widest mb-2 transition-colors ${errors.c ? 'text-red-500' : 'text-olive-muted'}`}>
+                                    <label className={`block text-xs font-medium uppercase tracking-widest mb-2 transition-colors ${errors.c ? 'text-red-500' : 'text-olive-muted'}`}>
                                         Contact Info
                                     </label>
                                     <input 
@@ -178,14 +178,14 @@ export const SellerInfo: React.FC = () => {
                                         placeholder="Phone or Email"
                                     />
                                     {errors.c && (
-                                        <div className="absolute right-0 top-1/2 translate-y-2 text-xs font-mono text-red-500 uppercase tracking-widest animate-fade-up" style={{ animationDuration: '0.3s' }}>
+                                        <div className="absolute right-0 top-1/2 translate-y-2 text-xs font-medium text-red-500 uppercase tracking-widest animate-fade-up" style={{ animationDuration: '0.3s' }}>
                                             {errors.c}
                                         </div>
                                     )}
                                 </div>
 
                                 <div className="group">
-                                    <label className="block font-mono text-xs uppercase tracking-widest text-olive-muted mb-2">How can we help?</label>
+                                    <label className="block text-xs font-medium uppercase tracking-widest text-olive-muted mb-2">How can we help?</label>
                                     <textarea 
                                         rows={2}
                                         value={form.m}
@@ -198,7 +198,7 @@ export const SellerInfo: React.FC = () => {
                                 <button
                                     onClick={handleSubmit}
                                     disabled={submitting}
-                                    className="w-full bg-olive text-cream py-6 rounded-xl font-mono text-xs uppercase tracking-[0.2em] hover:bg-olive-muted transition-colors mt-8 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                                    className="w-full bg-olive text-cream py-6 rounded-xl text-xs font-medium uppercase tracking-[0.2em] hover:bg-olive-muted transition-colors mt-8 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                                 >
                                     {submitting ? (
                                         <>

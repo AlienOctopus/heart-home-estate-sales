@@ -82,7 +82,7 @@ export const SalesPage: React.FC = () => {
                     <div className="relative z-20">
                         <div className="inline-flex items-center gap-3 mb-8 px-5 py-2.5 rounded-full border border-olive/10 bg-white/50 w-fit">
                             <span className="w-2 h-2 rounded-full bg-sage"></span>
-                            <span className="font-mono text-xs tracking-widest uppercase text-olive">Upcoming Sale</span>
+                            <span className="text-xs font-medium tracking-widest uppercase text-olive">Upcoming Sale</span>
                         </div>
 
                         {/* Fixed scale typography - no vw units */}
@@ -109,12 +109,12 @@ export const SalesPage: React.FC = () => {
 
                         {/* Countdown - Inline */}
                         <div className="bg-cream-dark rounded-sm p-6 mb-10 inline-block border border-olive/5">
-                            <div className="font-mono text-xs uppercase tracking-widest text-olive/50 mb-2">Opens in</div>
+                            <div className="text-xs font-medium uppercase tracking-widest text-olive/50 mb-2">Opens in</div>
                             <div className="flex items-baseline gap-1 font-display text-3xl text-olive tracking-tight">
                                 <span className="tabular-nums">{timeLeft.d}</span>
-                                <span className="text-sm mr-3 font-mono text-olive/40">days</span>
+                                <span className="text-sm mr-3 font-medium text-olive/40">days</span>
                                 <span className="tabular-nums">{timeLeft.h}</span>
-                                <span className="text-sm font-mono text-olive/40">hours</span>
+                                <span className="text-sm font-medium text-olive/40">hours</span>
                             </div>
                         </div>
 
@@ -123,13 +123,13 @@ export const SalesPage: React.FC = () => {
                                 href={`https://maps.google.com/?q=${encodeURIComponent(DATA.sale.address.full)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-olive text-cream px-8 py-4 rounded-full font-mono text-sm uppercase tracking-widest hover:bg-olive-muted transition-colors flex items-center gap-3 group"
+                                className="bg-olive text-cream px-8 py-4 rounded-full text-sm font-medium uppercase tracking-widest hover:bg-olive-muted transition-colors flex items-center gap-3 group"
                             >
                                 Get Directions <Icon name="right" s={16} className="group-hover:translate-x-1 transition-transform" />
                             </a>
                             <button
                                 onClick={generateICS}
-                                className="px-8 py-4 rounded-full border border-olive/20 hover:border-olive font-mono text-sm uppercase tracking-widest transition-colors text-olive"
+                                className="px-8 py-4 rounded-full border border-olive/20 hover:border-olive text-sm font-medium uppercase tracking-widest transition-colors text-olive"
                             >
                                 Add to Calendar
                             </button>

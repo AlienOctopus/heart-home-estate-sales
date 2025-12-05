@@ -15,7 +15,7 @@ export const ShopperInfo: React.FC = () => {
                             Estate sales operate differently than retail. Here is the playbook for securing your treasures.
                         </p>
                     </div>
-                    <div className="hidden md:block font-mono text-xs uppercase tracking-widest text-olive-muted">
+                    <div className="hidden md:block text-xs font-medium uppercase tracking-widest text-olive-muted">
                         Process & Etiquette
                     </div>
                 </div>
@@ -29,15 +29,15 @@ export const ShopperInfo: React.FC = () => {
                         <div className="absolute -top-10 -right-4 p-8 opacity-5 font-display text-[14rem] leading-none group-hover:scale-105 transition-transform duration-700 select-none">1</div>
                         <div className="relative z-10 h-full flex flex-col justify-between">
                             <div>
-                                <div className="font-mono text-xs text-sage mb-6 uppercase tracking-widest">01 • The Arrival</div>
+                                <div className="text-xs font-medium text-sage mb-6 uppercase tracking-widest">01 • The Arrival</div>
                                 <h3 className="font-display text-4xl md:text-5xl text-olive mb-6 tracking-tight">The Early Bird Gets the Worm</h3>
                                 <p className="text-olive/70 leading-relaxed max-w-md font-light text-lg">
                                     Doors open strictly at 8am. Regulars line up as early as 7:30am. If you are hunting for a specific high-value item, we recommend arriving early to secure your spot in line.
                                 </p>
                             </div>
                             <div className="mt-12 flex gap-3">
-                                <span className="px-5 py-2 bg-olive/5 rounded-full text-xs font-mono text-olive-muted uppercase tracking-wider">Coffee Recommended</span>
-                                <span className="px-5 py-2 bg-olive/5 rounded-full text-xs font-mono text-olive-muted uppercase tracking-wider">No Numbers</span>
+                                <span className="px-5 py-2 bg-olive/5 rounded-full text-xs font-medium text-olive-muted uppercase tracking-wider">Coffee Recommended</span>
+                                <span className="px-5 py-2 bg-olive/5 rounded-full text-xs font-medium text-olive-muted uppercase tracking-wider">No Numbers</span>
                             </div>
                         </div>
                     </div>
@@ -46,20 +46,20 @@ export const ShopperInfo: React.FC = () => {
                     <div className="md:col-span-3 lg:col-span-5 bg-olive text-cream p-10 md:p-14 rounded-[2.5rem] relative overflow-hidden flex flex-col justify-between group">
                         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-sage/20 rounded-full blur-[50px] group-hover:bg-sage/30 transition-colors" />
                         <div>
-                            <div className="font-mono text-xs text-sage mb-6 uppercase tracking-widest">02 • Pricing Strategy</div>
+                            <div className="text-xs font-medium text-sage mb-6 uppercase tracking-widest">02 • Pricing Strategy</div>
                             <h3 className="font-display text-4xl md:text-5xl text-cream mb-8 tracking-tight">Dynamic Pricing</h3>
                             <ul className="space-y-6 font-light text-cream/80">
                                 <li className="flex justify-between border-b border-white/10 pb-4">
                                     <span className="font-display text-xl">Saturday</span>
-                                    <span className="font-mono text-xs uppercase tracking-widest text-white mt-1">Full Price</span>
+                                    <span className="text-xs font-medium uppercase tracking-widest text-white mt-1">Full Price</span>
                                 </li>
                                 <li className="flex justify-between border-b border-white/10 pb-4">
                                     <span className="font-display text-xl">Sunday Morning</span>
-                                    <span className="font-mono text-xs uppercase tracking-widest text-white mt-1">25% Off</span>
+                                    <span className="text-xs font-medium uppercase tracking-widest text-white mt-1">25% Off</span>
                                 </li>
                                 <li className="flex justify-between border-b border-white/10 pb-4">
                                     <span className="font-display text-xl">Sunday Afternoon</span>
-                                    <span className="font-mono text-xs uppercase tracking-widest text-white mt-1">Make Offer</span>
+                                    <span className="text-xs font-medium uppercase tracking-widest text-white mt-1">Make Offer</span>
                                 </li>
                             </ul>
                         </div>
@@ -67,7 +67,7 @@ export const ShopperInfo: React.FC = () => {
 
                     {/* Card 3: Payments (Small) */}
                     <div className="md:col-span-3 lg:col-span-4 bg-sage/20 p-10 rounded-[2.5rem] border border-sage/10 flex flex-col justify-center items-center text-center">
-                        <div className="font-mono text-xs text-olive-muted mb-4 uppercase tracking-widest">03 • Checkout</div>
+                        <div className="text-xs font-medium text-olive-muted mb-4 uppercase tracking-widest">03 • Checkout</div>
                         <h3 className="font-display text-3xl text-olive mb-2 tracking-tight">Cash & Card</h3>
                         <p className="text-base text-olive/70 mb-6 font-light">We accept all major cards, Apple Pay, and Venmo.</p>
                         <div className="flex gap-3 opacity-40">
@@ -80,7 +80,7 @@ export const ShopperInfo: React.FC = () => {
                     {/* Card 4: Delivery (Wide) */}
                     <div className="md:col-span-3 lg:col-span-8 bg-white p-10 md:p-14 rounded-[2.5rem] border-optical flex flex-col md:flex-row items-center gap-12">
                         <div className="flex-1">
-                            <div className="font-mono text-xs text-sage mb-4 uppercase tracking-widest">04 • Logistics</div>
+                            <div className="text-xs font-medium text-sage mb-4 uppercase tracking-widest">04 • Logistics</div>
                             <h3 className="font-display text-3xl text-olive mb-4 tracking-tight">Heavy Lifting?</h3>
                             <p className="text-olive/70 leading-relaxed text-lg font-light">
                                 We partner with "Two Men & A Truck" for same-day local delivery starting at a flat rate of $75. Ask at the checkout desk.
@@ -94,7 +94,7 @@ export const ShopperInfo: React.FC = () => {
 
                 {/* Integrated FAQ */}
                 <div className="max-w-3xl mx-auto">
-                    <h3 className="font-mono text-xs uppercase tracking-widest text-center text-olive-muted mb-10">Quick Answers</h3>
+                    <h3 className="text-xs font-medium uppercase tracking-widest text-center text-olive-muted mb-10">Quick Answers</h3>
                     <div className="space-y-4">
                         {DATA.faqs.map((f, i) => (
                             <div key={i} className="bg-white rounded-3xl overflow-hidden border border-black/5">

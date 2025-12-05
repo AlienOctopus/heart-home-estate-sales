@@ -92,7 +92,7 @@ export const Header: React.FC = () => {
                             <span className={`font-display font-semibold transition-all duration-300 ${scrolled ? 'text-[15px] md:text-base' : 'text-lg md:text-xl'} ${menuOpen ? 'text-cream' : 'text-olive'}`}>
                                 Heart & Home
                             </span>
-                            <span className={`font-mono uppercase tracking-[0.2em] transition-all duration-300 ${scrolled ? 'text-[7px] md:text-[8px]' : 'text-[9px] md:text-[10px]'} ${menuOpen ? 'text-cream/60' : 'text-olive/40'}`}>
+                            <span className={`uppercase tracking-[0.2em] font-medium transition-all duration-300 ${scrolled ? 'text-[7px] md:text-[8px]' : 'text-[9px] md:text-[10px]'} ${menuOpen ? 'text-cream/60' : 'text-olive/40'}`}>
                                 Estate Sales
                             </span>
                         </div>
@@ -154,7 +154,7 @@ export const Header: React.FC = () => {
                             `}
                         >
                             <Icon name="phone" s={14} />
-                            <span className="font-mono text-xs tracking-tight">{DATA.config.phone}</span>
+                            <span className="text-xs tracking-tight tabular-nums">{DATA.config.phone}</span>
                         </a>
 
                         {/* Mobile Phone Button - WCAG 2.5.5: 44px minimum touch target */}
@@ -256,20 +256,20 @@ export const Header: React.FC = () => {
                                 <Icon name="phone" s={20} />
                             </div>
                             <div>
-                                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/50 mb-1">Call {DATA.config.owner}</div>
+                                <div className="text-[10px] uppercase tracking-[0.2em] text-cream/50 mb-1 font-medium">Call {DATA.config.owner}</div>
                                 <div className="text-2xl font-display group-hover:text-sage transition-colors">{DATA.config.phone}</div>
                             </div>
                         </a>
 
                         <div className="grid grid-cols-1 gap-6 text-sm">
                             <div>
-                                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-2">Email</div>
+                                <div className="text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-2 font-medium">Email</div>
                                 <a href={`mailto:${DATA.config.email}`} className="font-display text-cream/80 hover:text-sage transition-colors break-all">
                                     {DATA.config.email}
                                 </a>
                             </div>
                             <div>
-                                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-2">Service Area</div>
+                                <div className="text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-2 font-medium">Service Area</div>
                                 <div className="font-display text-cream/80">{DATA.config.areaShort || DATA.config.area}</div>
                             </div>
                         </div>

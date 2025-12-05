@@ -84,7 +84,7 @@ export const Hero: React.FC = () => {
                         <div className="relative w-36 h-36 animate-spin-slow">
                             <svg viewBox="0 0 100 100" width="144" height="144" className="fill-olive">
                                 <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
-                                <text fontSize="10" fontWeight="400" letterSpacing="0.2em" fontFamily="Space Mono">
+                                <text fontSize="10" fontWeight="500" letterSpacing="0.2em" fontFamily="DM Sans">
                                     <textPath href="#circlePath" startOffset="0%">
                                         HEART & HOME • ESTATE SERVICES •
                                     </textPath>
@@ -106,10 +106,10 @@ export const Hero: React.FC = () => {
                         
                         {/* Countdown Pill - Floating on Image - BUMPED SIZE */}
                         <div className="absolute bottom-8 left-8 z-20 bg-cream/90 backdrop-blur-xl py-6 px-8 rounded-2xl shadow-lg border border-white/40">
-                            <div className="font-mono text-xs uppercase tracking-widest text-olive-muted mb-2">Opens in</div>
+                            <div className="text-xs font-medium uppercase tracking-widest text-olive-muted mb-2">Opens in</div>
                             <div className="flex items-baseline gap-1 font-display text-4xl text-olive leading-none tracking-tight">
-                                <span className="tabular-nums">{timeLeft.d}</span><span className="text-sm mr-2 font-mono text-olive/50">D</span>
-                                <span className="tabular-nums">{timeLeft.h}</span><span className="text-sm font-mono text-olive/50">H</span>
+                                <span className="tabular-nums">{timeLeft.d}</span><span className="text-sm mr-2 font-medium text-olive/50">D</span>
+                                <span className="tabular-nums">{timeLeft.h}</span><span className="text-sm font-medium text-olive/50">H</span>
                             </div>
                         </div>
                     </div>
@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
                         }`}
                     >
                         <span className="w-2 h-2 rounded-full bg-olive animate-pulse"></span>
-                        <span className="font-mono text-xs font-bold tracking-widest uppercase text-olive">Upcoming Estate • {DATA.sale.dates[0].date}</span>
+                        <span className="text-xs font-bold tracking-widest uppercase text-olive">Upcoming Estate • {DATA.sale.dates[0].date}</span>
                     </div>
 
                     {/* Massive Display Type - Tighter Tracking for Editorial Look */}
@@ -159,13 +159,13 @@ export const Hero: React.FC = () => {
                             <a 
                                 href={`https://maps.google.com/?q=${encodeURIComponent(DATA.sale.address.full)}`} 
                                 target="_blank"
-                                className="bg-olive text-cream px-8 py-4 rounded-full font-mono text-sm uppercase tracking-widest hover:bg-olive-muted transition-colors flex items-center gap-2 group"
+                                className="bg-olive text-cream px-8 py-4 rounded-full text-sm font-medium uppercase tracking-widest hover:bg-olive-muted transition-colors flex items-center gap-2 group"
                             >
                                 Get Directions <Icon name="right" s={16} className="group-hover:translate-x-1 transition-transform" />
                             </a>
                             <button
                                 onClick={generateICS}
-                                className="px-8 py-4 rounded-full border border-olive/20 hover:border-olive font-mono text-sm uppercase tracking-widest transition-colors text-olive"
+                                className="px-8 py-4 rounded-full border border-olive/20 hover:border-olive text-sm font-medium uppercase tracking-widest transition-colors text-olive"
                             >
                                 Add to Calendar
                             </button>

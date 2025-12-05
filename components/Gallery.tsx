@@ -34,7 +34,7 @@ export const Gallery: React.FC = () => {
                     </div>
                     
                     <div className="flex flex-col items-end">
-                        <div className="font-mono text-xs uppercase tracking-widest text-olive-muted mb-4">
+                        <div className="text-xs font-medium uppercase tracking-widest text-olive-muted mb-4">
                             {DATA.sale.counts.shown} Items Photographed
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -42,7 +42,7 @@ export const Gallery: React.FC = () => {
                                 <button
                                     key={cat}
                                     onClick={() => setActiveFilter(cat)}
-                                    className={`px-5 py-2 rounded-full text-xs font-mono uppercase transition-all duration-300 ${
+                                    className={`px-5 py-2 rounded-full text-xs font-medium uppercase transition-all duration-300 ${
                                         activeFilter === cat
                                             ? 'bg-olive text-cream border border-olive'
                                             : 'border border-olive/10 text-olive/50 hover:border-olive/30 hover:text-olive'
@@ -75,13 +75,13 @@ export const Gallery: React.FC = () => {
                                 
                                 {/* "View" Custom Cursor Simulation */}
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-cream/95 backdrop-blur rounded-full flex items-center justify-center opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-300 shadow-2xl z-20">
-                                    <span className="font-mono text-xs font-bold tracking-widest uppercase text-olive">View</span>
+                                    <span className="text-xs font-bold tracking-widest uppercase text-olive">View</span>
                                 </div>
                             </div>
                             
                             <div className="mt-4 opacity-80 group-hover:opacity-100 transition-opacity pl-2">
                                 <h3 className="font-display text-2xl leading-tight text-olive mb-1">{item.title}</h3>
-                                <p className="font-mono text-xs text-olive-muted uppercase tracking-wider">{item.cat}</p>
+                                <p className="text-xs font-medium text-olive-muted uppercase tracking-wider">{item.cat}</p>
                             </div>
                         </div>
                     ))}
@@ -114,7 +114,7 @@ export const Gallery: React.FC = () => {
                             />
                         </div>
                         <div className="w-full md:w-1/2 p-10 md:p-20 flex flex-col justify-center bg-cream relative overflow-y-auto">
-                            <div className="font-mono text-sm text-olive-muted uppercase tracking-widest mb-8">Lot No. 00{activeItem.id}</div>
+                            <div className="text-sm font-medium text-olive-muted uppercase tracking-widest mb-8">Lot No. 00{activeItem.id}</div>
                             <h3 className="font-display text-4xl md:text-6xl mb-8 text-olive leading-[1] tracking-tight">{activeItem.title}</h3>
                             <p className="text-olive/70 text-lg md:text-xl leading-relaxed mb-10 font-light">{activeItem.desc}</p>
                             
@@ -124,7 +124,7 @@ export const Gallery: React.FC = () => {
                                 </div>
                             )}
                             
-                            <div className="mt-auto pt-10 border-t border-olive/10 flex gap-6 text-xs font-mono uppercase tracking-widest text-olive-muted">
+                            <div className="mt-auto pt-10 border-t border-olive/10 flex gap-6 text-xs font-medium uppercase tracking-widest text-olive-muted">
                                 <span>Condition: Excellent</span>
                                 <span>•</span>
                                 <span>Available Sat</span>

@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16 md:mb-24">
                     {/* Contact Info - Full width on mobile */}
                     <div className="col-span-2 md:col-span-1">
-                        <div className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Call {DATA.config.owner}</div>
+                        <div className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Call {DATA.config.owner}</div>
                         <div className="space-y-2 md:space-y-3">
                             <a href={`tel:${DATA.config.phone.replace(/[^0-9]/g, '')}`} className="block font-display text-xl md:text-2xl hover:text-sage transition-colors">
                                 {DATA.config.phone}
@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
 
                     {/* Quick Links */}
                     <div>
-                        <div className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Quick Links</div>
+                        <div className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Quick Links</div>
                         <div className="space-y-2">
                             <Link to="/" className="block text-sm md:text-base text-cream/70 hover:text-cream transition-colors py-1">Our Services</Link>
                             <Link to="/sales" className="block text-sm md:text-base text-cream/70 hover:text-cream transition-colors py-1">Current Sale</Link>
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
 
                     {/* Social Links */}
                     <div>
-                        <div className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Find Us</div>
+                        <div className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Find Us</div>
                         <div className="flex flex-wrap gap-2">
                             {/* Facebook - actual link */}
                             <a
@@ -51,7 +51,7 @@ export const Footer: React.FC = () => {
 
                     {/* Service Area */}
                     <div className="col-span-2 md:col-span-1 md:text-right">
-                        <div className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Service Area</div>
+                        <div className="text-[10px] sm:text-xs font-medium uppercase tracking-widest text-cream/50 mb-3 md:mb-4">Service Area</div>
                         <div className="font-display text-lg md:text-xl mb-2">{DATA.config.areaShort || 'East Bay'}</div>
                         <div className="text-sm text-cream/60 leading-relaxed">
                             Brentwood • Pleasanton<br/>
@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
                         <h2 className="font-display text-2xl md:text-3xl tracking-tight text-center text-cream/90">
                             Heart & Home
                         </h2>
-                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mt-1">
+                        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-cream/40 mt-1">
                             Estate Sales
                         </p>
                         {DATA.config.tagline && (
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-mono uppercase tracking-widest opacity-40">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-medium uppercase tracking-widest opacity-40">
                     <div>
                         © {new Date().getFullYear()} Heart & Home Estate Sales
                     </div>

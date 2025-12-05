@@ -30,7 +30,7 @@ export const Testimonials: React.FC = () => {
             <div className="max-w-[1000px] mx-auto px-6 relative z-10">
 
                 <div className="text-center mb-16">
-                    <span className="font-mono text-xs uppercase tracking-widest text-olive-muted">What Families Say</span>
+                    <span className="text-xs font-medium uppercase tracking-widest text-olive-muted">What Families Say</span>
                 </div>
 
                 {/* Quote Display */}
@@ -54,12 +54,12 @@ export const Testimonials: React.FC = () => {
                             </blockquote>
 
                             <div className="flex items-center gap-3 sm:gap-4">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-olive text-cream flex items-center justify-center font-mono text-xs sm:text-sm font-bold">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-olive text-cream flex items-center justify-center text-xs sm:text-sm font-bold">
                                     {t.init}
                                 </div>
                                 <div className="text-left">
                                     <div className="font-display text-base sm:text-lg text-olive">{t.name}</div>
-                                    <div className="font-mono text-[10px] sm:text-xs text-olive-muted uppercase tracking-wider">{t.ctx}</div>
+                                    <div className="text-[10px] sm:text-xs font-medium text-olive-muted uppercase tracking-wider">{t.ctx}</div>
                                 </div>
                             </div>
                         </div>

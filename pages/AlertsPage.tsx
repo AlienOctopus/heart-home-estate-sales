@@ -81,7 +81,7 @@ export const AlertsPage: React.FC = () => {
                                     </div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-olive text-cream py-4 rounded-full font-mono text-sm uppercase tracking-widest hover:bg-olive-muted transition-colors"
+                                        className="w-full bg-olive text-cream py-4 rounded-full text-sm font-medium uppercase tracking-widest hover:bg-olive-muted transition-colors"
                                     >
                                         Notify Me
                                     </button>
@@ -107,7 +107,7 @@ export const AlertsPage: React.FC = () => {
             {/* Current/Upcoming Sale */}
             <section className="py-16 px-6 md:px-12 lg:px-20 bg-cream-dark">
                 <div className="max-w-[1000px] mx-auto">
-                    <h2 className="font-mono text-xs uppercase tracking-widest text-olive/50 mb-8">Upcoming Sale</h2>
+                    <h2 className="text-xs font-medium uppercase tracking-widest text-olive/50 mb-8">Upcoming Sale</h2>
 
                     <Link
                         to="/sales"
@@ -124,7 +124,7 @@ export const AlertsPage: React.FC = () => {
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-3">
                                     <span className="w-2 h-2 rounded-full bg-sage"></span>
-                                    <span className="font-mono text-xs uppercase tracking-widest text-sage">Coming Up</span>
+                                    <span className="text-xs font-medium uppercase tracking-widest text-sage">Coming Up</span>
                                 </div>
                                 <h3 className="font-display text-3xl md:text-4xl text-olive mb-2 group-hover:text-sage transition-colors">
                                     {DATA.sale.name}
