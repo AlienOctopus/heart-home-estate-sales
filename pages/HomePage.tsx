@@ -35,10 +35,11 @@ export const HomePage: React.FC = () => {
 
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
                     {/* Main headline - Fixed scale, no vw units */}
-                    <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-10 max-w-4xl">
+                    <h1 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-10 max-w-4xl">
                         <span className="block">For East Bay Families</span>
                         <span className="block">Who Just Inherited</span>
-                        <span className="block">a House Full of <span className="text-sage italic">"Everything"</span></span>
+                        <span className="block">a House Full of</span>
+                        <span className="block text-sage italic">"Everything"</span>
                     </h1>
 
                     {/* Mobile hero image - landscape version, full bleed */}
