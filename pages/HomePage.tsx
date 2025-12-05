@@ -15,15 +15,15 @@ export const HomePage: React.FC = () => {
 
             {/* Hero - The Pain Point */}
             <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-20 relative overflow-hidden">
-                {/* Hero Image - Desktop: floating right with editorial fade */}
-                <div className="absolute top-24 right-6 md:right-12 lg:right-20 w-[42%] h-[80vh] hidden lg:block pointer-events-none select-none">
+                {/* Hero Image - Desktop: full-bleed right with gradient dissolution */}
+                <div className="absolute top-32 right-0 w-[50%] h-[75vh] hidden lg:block pointer-events-none select-none">
                     <div className="relative w-full h-full">
                         {/* Left edge fade into cream background */}
-                        <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-cream via-cream/80 to-transparent z-10" />
+                        <div className="absolute inset-y-0 left-0 w-64 bg-gradient-to-r from-cream via-cream/70 to-transparent z-10" />
                         <img
                             src="/images/treasures-flatlay.webp"
                             alt="Treasured heirlooms - vintage teacups, silver, handwritten letters"
-                            className="w-full h-full object-cover object-center opacity-90"
+                            className="w-full h-full object-cover object-center opacity-85"
                             style={{ filter: 'grayscale(0.25) contrast(0.96) brightness(1.02)' }}
                             width={1024}
                             height={1024}
