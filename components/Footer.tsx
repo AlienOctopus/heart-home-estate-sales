@@ -26,7 +26,7 @@ export const Footer: React.FC = () => {
                         <div className="space-y-2">
                             <Link to="/" className="block text-sm md:text-base text-cream/70 hover:text-cream transition-colors py-1">Our Services</Link>
                             <Link to="/sales" className="block text-sm md:text-base text-cream/70 hover:text-cream transition-colors py-1">Current Sale</Link>
-                            <Link to="/shop" className="block text-sm md:text-base text-cream/70 hover:text-cream transition-colors py-1">Shop Sales</Link>
+                            <Link to="/alerts" className="block text-sm md:text-base text-cream/70 hover:text-cream transition-colors py-1">Sale Alerts</Link>
                         </div>
                     </div>
 

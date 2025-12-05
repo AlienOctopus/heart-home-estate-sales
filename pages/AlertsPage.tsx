@@ -5,8 +5,9 @@ import { Icon } from '../components/Icons';
 import { Footer } from '../components/Footer';
 import { JsonLd } from '../components/JsonLd';
 
-// Shop page - email capture + upcoming sales for shoppers
-export const ShopPage: React.FC = () => {
+// Alerts page - email capture + upcoming sales for shoppers
+export const AlertsPage: React.FC = () => {
+    const [zipCode, setZipCode] = useState('');
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
@@ -36,24 +37,40 @@ export const ShopPage: React.FC = () => {
 
             {/* Hero */}
             <section className="pt-32 pb-20 px-6 md:px-12 lg:px-20">
-                <div className="max-w-[1000px] mx-auto">
-                    <h1 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-olive mb-6">
-                        Get Sale Notifications
+                <div className="max-w-[600px] mx-auto text-center">
+                    <h1 className="font-display text-4xl sm:text-5xl md:text-6xl tracking-tight text-olive mb-6">
+                        Get Sale Alerts
                     </h1>
-                    <p className="text-xl md:text-2xl text-olive/70 leading-relaxed max-w-xl mb-12">
+                    <p className="text-lg sm:text-xl md:text-2xl text-olive/70 leading-relaxed mb-12">
                         Be the first to know when we announce new estate sales
                         in {DATA.config.areaShort || 'the East Bay'}.
                     </p>
 
                     {/* Email Capture - Primary CTA */}
-                    <div className="bg-white rounded-sm p-8 md:p-10 border border-olive/5 max-w-xl mb-16">
+                    <div className="bg-white rounded-sm p-8 md:p-10 border border-olive/5 text-left">
                         {!submitted ? (
                             <>
                                 <p className="text-olive/60 mb-6">We'll email you when we announce upcoming sales. No spam, just treasures.</p>
 
                                 <form onSubmit={handleSubmit} className="space-y-4">
                                     <div>
+                                        <label htmlFor="zipCode" className="block text-sm font-medium text-olive/70 mb-2">Zip Code</label>
                                         <input
+                                            id="zipCode"
+                                            type="text"
+                                            inputMode="numeric"
+                                            pattern="[0-9]{5}"
+                                            maxLength={5}
+                                            value={zipCode}
+                                            onChange={(e) => { setZipCode(e.target.value.replace(/\D/g, '')); setError(''); }}
+                                            placeholder="94513"
+                                            className="w-full px-5 py-4 rounded-sm border border-olive/10 bg-cream focus:outline-none focus:border-olive transition-colors text-lg"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="email" className="block text-sm font-medium text-olive/70 mb-2">Email Address</label>
+                                        <input
+                                            id="email"
                                             type="email"
                                             value={email}
                                             onChange={(e) => { setEmail(e.target.value); setError(''); }}

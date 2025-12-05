@@ -30,9 +30,9 @@
     </image:image>
   </url>
 
-  <!-- Shop / Sale Alerts - Email capture for shoppers -->
+  <!-- Sale Alerts - Email capture for shoppers -->
   <url>
-    <loc>https://www.example.com/shop</loc>
+    <loc>https://www.example.com/alerts</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

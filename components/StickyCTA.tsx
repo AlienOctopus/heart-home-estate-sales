@@ -42,7 +42,7 @@ export const StickyCTA: React.FC = () => {
         };
     }, [location.pathname]);
 
-    if (location.pathname === '/shop') return null;
+    if (location.pathname === '/alerts') return null;
 
     // Desktop: hide when footer is visible
     const desktopVisible = show && !footerVisible;

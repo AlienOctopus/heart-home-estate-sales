@@ -124,10 +124,10 @@ export const Header: React.FC = () => {
 
                         {/* Sale Alerts - Accent CTA for shoppers */}
                         <Link
-                            to="/shop"
+                            to="/alerts"
                             className={`
                                 flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
-                                ${location.pathname === '/shop'
+                                ${location.pathname === '/alerts'
                                     ? 'bg-sage/15 text-sage'
                                     : 'text-olive/60 hover:text-sage hover:bg-sage/[0.06]'
                                 }
@@ -238,7 +238,7 @@ export const Header: React.FC = () => {
                             Current Sale
                         </Link>
                         <Link
-                            to="/shop"
+                            to="/alerts"
                             className="text-left font-display text-4xl sm:text-5xl md:text-6xl font-light transition-all duration-300 opacity-0 animate-fade-up text-sage hover:text-sage-light"
                             style={{ animationDelay: '440ms', animationFillMode: 'forwards' }}
                         >

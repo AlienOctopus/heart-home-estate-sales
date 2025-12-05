@@ -5,7 +5,7 @@ import { StickyCTA } from './components/StickyCTA';
 import { ScrollToTop } from './components/ScrollToTop';
 import { HomePage } from './pages/HomePage';
 import { SalesPage } from './pages/SalesPage';
-import { ShopPage } from './pages/ShopPage';
+import { AlertsPage } from './pages/AlertsPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/sales" element={<SalesPage />} />
-          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/alerts" element={<AlertsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
 

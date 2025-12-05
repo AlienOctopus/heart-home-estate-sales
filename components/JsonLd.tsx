@@ -288,7 +288,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
     if (page === 'sales') {
         breadcrumbItems.push({ position: 2, name: "Current Sales", item: `${baseUrl}/sales` });
     } else if (page === 'shop') {
-        breadcrumbItems.push({ position: 2, name: "Shop", item: `${baseUrl}/shop` });
+        breadcrumbItems.push({ position: 2, name: "Sale Alerts", item: `${baseUrl}/alerts` });
     }
 
     const breadcrumb = {
