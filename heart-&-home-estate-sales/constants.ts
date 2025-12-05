@@ -3,13 +3,48 @@ import { AppData } from './types';
 export const DATA: AppData = {
     config: {
         name: "Heart & Home",
-        phone: "(417) 555-0192",
-        email: "sarah@heartandhomesales.com",
-        area: "Springfield, Nixa, Ozark, Republic & surrounding areas",
-        instagramUrl: "https://instagram.com/heartandhomesales",
-        stats: { families: 150, saleMin: 8000, saleMax: 15000 },
-        owner: "Sarah",
-        creds: "Licensed & Insured • Springfield Chamber Member"
+        legalName: "Heart & Home Estate Sales",
+        phone: "(925) 544-7051",
+        email: "hello@heartandhomeestatesales.com",
+        url: "https://heartandhomeestatesales.com",
+        area: "Brentwood, Danville, Blackhawk & the Tri-Valley",
+        areaShort: "East Bay",
+        baseCity: "Brentwood, CA",
+        // Prestigious neighborhoods for local SEO
+        serviceNeighborhoods: [
+            "Shadow Lakes", "Sterling Preserve", "Vista Dorado", "Deer Ridge",
+            "Ruby Hill", "Blackhawk", "Alamo", "Danville", "Walnut Creek",
+            "Pleasanton", "Livermore", "Discovery Bay"
+        ],
+        address: {
+            street: "123 Main Street", // Update with actual address
+            city: "Brentwood",
+            state: "CA",
+            zip: "94513",
+            country: "US"
+        },
+        geo: {
+            lat: 37.9318,
+            lng: -121.6958
+        },
+        openingHours: [
+            "Mo-Fr 09:00-17:00",
+            "Sa 09:00-14:00"
+        ],
+        foundingDate: "2024",
+        logo: "/images/logo.png",
+        image: "/images/hero-living-room.jpg",
+        instagramUrl: "https://instagram.com/heartandhomeestatesales",
+        stats: { families: 0, saleMin: 8000, saleMax: 15000 }, // New business - will grow
+        owner: "Shauna",
+        creds: "Bonded & Insured • Family-Owned",
+        services: [
+            "In-person Estate Sales",
+            "Online Auctions",
+            "Appraisal Services",
+            "Clean-out Services",
+            "Moving Assistance"
+        ]
     },
     sale: {
         name: "The Whitfield Estate",
@@ -85,9 +120,9 @@ export const DATA: AppData = {
         ]
     },
     testimonials: [
-        { quote: "Sarah handled everything. The final check was three times what I expected.", name: "Michael T.", loc: "Springfield", ctx: "Dad's estate, 2023", init: "MT" },
-        { quote: "I was afraid it would feel like a garage sale. It felt like an event.", name: "Linda R.", loc: "Nixa", ctx: "Mom's estate, 2024", init: "LR" },
-        { quote: "They were honest that some pieces weren't worth selling. That honesty is rare.", name: "Carol M.", loc: "Republic", ctx: "Downsizing, 2023", init: "CM" }
+        { quote: "Shauna treated my mother's home like it was her own. I didn't have to lift a finger.", name: "Michelle T.", loc: "Brentwood", ctx: "Mom's estate", init: "MT" },
+        { quote: "I was dreading this. They made it feel manageable—even meaningful.", name: "David R.", loc: "Walnut Creek", ctx: "Parents' estate", init: "DR" },
+        { quote: "They told me upfront that some things weren't worth selling. That honesty meant everything.", name: "Karen M.", loc: "Pleasanton", ctx: "Downsizing", init: "KM" }
     ],
     sellerProcess: [
         { n: '1', t: 'We Come to You', sub: 'Free', d: 'Within 48 hours, we\'ll walk through together. No pressure. We\'ll tell you honestly if a sale makes sense.' },

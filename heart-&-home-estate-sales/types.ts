@@ -48,13 +48,35 @@ export interface FAQ {
 export interface AppData {
   config: {
     name: string;
+    legalName?: string;
     phone: string;
     email: string;
+    url?: string;
     area: string;
+    areaShort?: string;
+    baseCity?: string;
+    // Prestigious neighborhoods for local SEO
+    serviceNeighborhoods?: string[];
+    address?: {
+      street: string;
+      city: string;
+      state: string;
+      zip: string;
+      country: string;
+    };
+    geo?: {
+      lat: number;
+      lng: number;
+    };
+    openingHours?: string[];
+    foundingDate?: string;
+    logo?: string;
+    image?: string;
     instagramUrl: string;
     stats: { families: number; saleMin: number; saleMax: number };
     owner: string;
     creds: string;
+    services?: string[];
   };
   sale: Sale;
   testimonials: Testimonial[];

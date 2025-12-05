@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DATA } from '../constants';
 import { Icon } from './Icons';
 
 export const Header: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
+    const [isProgrammaticScroll, setIsProgrammaticScroll] = useState(false);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
+            // Don't activate scrolled state during programmatic scroll
+            if (isProgrammaticScroll) return;
             setScrolled(window.scrollY > 50);
         };
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [isProgrammaticScroll]);
 
     useEffect(() => {
         if (menuOpen) document.body.style.overflow = 'hidden';
@@ -20,78 +26,195 @@ export const Header: React.FC = () => {
         return () => { document.body.style.overflow = ''; };
     }, [menuOpen]);
 
-    const scrollTo = (id: string) => {
+    // Close menu on route change
+    useEffect(() => {
         setMenuOpen(false);
-        const el = document.querySelector(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, [location]);
+
+    // Smooth scroll to About section
+    const scrollToAbout = useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+        setMenuOpen(false);
+
+        if (location.pathname !== '/') {
+            navigate('/', { state: { scrollToAbout: true } });
+        } else {
+            const aboutSection = document.getElementById('about');
+            if (aboutSection) {
+                // Disable scroll detection during programmatic scroll
+                setIsProgrammaticScroll(true);
+                aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Re-enable after animation completes (~800ms for smooth scroll)
+                setTimeout(() => setIsProgrammaticScroll(false), 900);
+            }
+        }
+    }, [location.pathname, navigate]);
+
+    // Handle scroll after navigation
+    useEffect(() => {
+        if (location.state?.scrollToAbout && location.pathname === '/') {
+            // Disable scroll detection during programmatic scroll
+            setIsProgrammaticScroll(true);
+            setTimeout(() => {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                // Re-enable after animation completes
+                setTimeout(() => setIsProgrammaticScroll(false), 900);
+            }, 100);
+            // Clear the state
+            window.history.replaceState({}, document.title);
+        }
+    }, [location]);
+
+    const navItems = [
+        { label: 'Services', to: '/', type: 'link' as const },
+        { label: 'About', to: '/#about', type: 'scroll' as const },
+        { label: 'Current Sale', to: '/sales', type: 'link' as const },
+    ];
+
+    const isActive = (item: typeof navItems[0]) => {
+        if (item.type === 'scroll') return false;
+        return location.pathname === item.to;
     };
 
     return (
         <>
             {/* The "Island" Header */}
-            <header 
+            <header
                 className={`
-                    fixed top-6 left-0 right-0 z-50 flex justify-center pointer-events-none
+                    fixed top-4 md:top-6 left-0 right-0 z-50 flex justify-center pointer-events-none
                     transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
                 `}
             >
-                <div 
+                <div
                     className={`
-                        pointer-events-auto flex items-center justify-between gap-8
+                        pointer-events-auto flex items-center justify-between
                         transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-                        ${scrolled 
-                            ? 'w-[calc(100%-2rem)] md:w-auto bg-cream/90 backdrop-blur-xl border border-white/40 shadow-xl shadow-olive/5 rounded-full py-4 px-6 md:px-8' 
+                        ${scrolled
+                            ? 'w-[calc(100%-1.5rem)] md:w-auto bg-cream/95 backdrop-blur-xl border border-olive/[0.08] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)] rounded-full py-2.5 md:py-3 px-3 md:px-5'
                             : 'w-full max-w-[1500px] px-6 md:px-12 py-6 bg-transparent'
                         }
                     `}
                 >
                     {/* Logo */}
-                    <a href="#" className="flex items-center gap-4 group">
-                        <div className="w-10 h-10 md:w-12 md:h-12 bg-olive text-cream rounded-full flex items-center justify-center text-xl md:text-2xl relative overflow-hidden">
-                            <span className="relative z-10">H</span>
-                            <div className="absolute inset-0 bg-sage opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <Link to="/" className="flex items-center gap-2 group">
+                        <svg
+                            className={`text-sage transition-all duration-300 group-hover:scale-110 ${scrolled ? 'w-5 h-5' : 'w-6 h-6'}`}
+                            viewBox="0 0 24 24"
+                            fill="currentColor"
+                        >
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <div className={`flex flex-col leading-none transition-all duration-300 ${scrolled ? 'gap-0' : 'gap-0.5'}`}>
+                            <span className={`font-display font-semibold text-olive transition-all duration-300 ${scrolled ? 'text-[15px] md:text-base' : 'text-lg md:text-xl'}`}>
+                                Heart & Home
+                            </span>
+                            <span className={`font-mono uppercase tracking-[0.2em] text-olive/40 transition-all duration-300 ${scrolled ? 'text-[7px] md:text-[8px]' : 'text-[9px] md:text-[10px]'}`}>
+                                Estate Sales
+                            </span>
                         </div>
-                        <span className={`font-display font-bold text-olive transition-all duration-300 ${scrolled ? 'text-xl' : 'text-2xl'}`}>
-                            Heart & Home
-                        </span>
-                    </a>
-                    
-                    {/* Desktop Nav */}
-                    <nav className={`hidden md:flex items-center gap-10 transition-opacity duration-300 ${scrolled ? 'opacity-0 w-0 overflow-hidden' : 'opacity-100'}`}>
-                        {['Sale', 'Gallery', 'Process', 'About'].map((item) => (
-                            <button 
-                                key={item}
-                                onClick={() => scrollTo(`#${item.toLowerCase() === 'process' ? 'families' : item.toLowerCase()}`)} 
-                                className="text-base font-medium text-olive/80 hover:text-olive transition-colors relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-px after:bg-olive after:transition-all hover:after:w-full"
-                            >
-                                {item}
-                            </button>
-                        ))}
-                    </nav>
+                    </Link>
 
-                    <div className="flex items-center gap-4">
-                        {/* CTA - Larger */}
-                        <button 
-                            onClick={() => scrollTo('#families')}
+                    {/* Desktop Nav - Always visible, adapts to scroll state */}
+                    <nav className={`hidden md:flex items-center transition-all duration-300 ${scrolled ? 'gap-1' : 'gap-1'}`}>
+                        {navItems.map((item) => (
+                            item.type === 'scroll' ? (
+                                <button
+                                    key={item.to}
+                                    onClick={scrollToAbout}
+                                    className={`
+                                        px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                                        text-olive/60 hover:text-olive hover:bg-olive/[0.04]
+                                    `}
+                                >
+                                    {item.label}
+                                </button>
+                            ) : (
+                                <Link
+                                    key={item.to}
+                                    to={item.to}
+                                    className={`
+                                        px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                                        ${isActive(item)
+                                            ? 'text-olive bg-olive/[0.06]'
+                                            : 'text-olive/60 hover:text-olive hover:bg-olive/[0.04]'
+                                        }
+                                    `}
+                                >
+                                    {item.label}
+                                </Link>
+                            )
+                        ))}
+
+                        {/* Separator */}
+                        <div className={`h-5 w-px bg-olive/10 mx-2 transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-60'}`} />
+
+                        {/* Get Notified - Special treatment as conversion action */}
+                        <Link
+                            to="/shop"
                             className={`
-                                px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300
-                                ${scrolled 
-                                    ? 'bg-olive text-cream hover:bg-olive-muted' 
-                                    : 'bg-white/90 hover:bg-white text-olive backdrop-blur-sm shadow-sm'
+                                flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                                ${location.pathname === '/shop'
+                                    ? 'bg-sage/15 text-sage'
+                                    : 'text-olive/60 hover:text-sage hover:bg-sage/[0.06]'
                                 }
                             `}
                         >
-                            Contact
-                        </button>
+                            <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                            </svg>
+                            <span>Get Notified</span>
+                        </Link>
+                    </nav>
+
+                    <div className="flex items-center gap-2">
+                        {/* Phone CTA - Desktop */}
+                        <a
+                            href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
+                            className={`
+                                hidden md:flex items-center gap-2 rounded-full text-sm font-medium transition-all duration-300
+                                ${scrolled
+                                    ? 'bg-olive text-cream hover:bg-olive-muted px-4 py-2'
+                                    : 'bg-olive text-cream hover:bg-olive-muted px-5 py-2.5 shadow-sm'
+                                }
+                            `}
+                        >
+                            <Icon name="phone" s={14} />
+                            <span className="font-mono text-xs tracking-tight">{DATA.config.phone}</span>
+                        </a>
+
+                        {/* Mobile Phone Button */}
+                        <a
+                            href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
+                            className={`
+                                md:hidden flex items-center justify-center rounded-full transition-all duration-300
+                                ${scrolled
+                                    ? 'w-9 h-9 bg-olive text-cream'
+                                    : 'w-11 h-11 bg-olive text-cream shadow-sm'
+                                }
+                            `}
+                            aria-label="Call us"
+                        >
+                            <Icon name="phone" s={scrolled ? 16 : 18} />
+                        </a>
 
                         {/* Mobile Toggle */}
-                        <button 
-                            onClick={() => setMenuOpen(!menuOpen)} 
-                            className="md:hidden p-3 text-olive hover:bg-olive/5 rounded-full transition-colors" 
+                        <button
+                            onClick={() => setMenuOpen(!menuOpen)}
+                            className={`
+                                md:hidden flex items-center justify-center rounded-full transition-all duration-300
+                                ${scrolled
+                                    ? 'w-9 h-9 text-olive hover:bg-olive/5'
+                                    : 'w-11 h-11 text-olive hover:bg-white/50'
+                                }
+                            `}
                             aria-label="Toggle Menu"
                         >
-                            <div className="w-6 h-6 flex items-center justify-center">
-                                {menuOpen ? <Icon name="x" s={24} /> : <Icon name="menu" s={24} />}
+                            <div className={`flex items-center justify-center transition-all duration-300 ${scrolled ? 'w-5 h-5' : 'w-6 h-6'}`}>
+                                {menuOpen ? <Icon name="x" s={scrolled ? 20 : 24} /> : <Icon name="menu" s={scrolled ? 20 : 24} />}
                             </div>
                         </button>
                     </div>
@@ -99,45 +222,87 @@ export const Header: React.FC = () => {
             </header>
 
             {/* Full Screen Menu Curtain */}
-            <div 
+            <div
                 className={`
                     fixed inset-0 z-40 bg-olive text-cream transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                    ${menuOpen ? 'clip-path-open pointer-events-auto' : 'clip-path-closed pointer-events-none'}
+                    ${menuOpen ? 'pointer-events-auto' : 'pointer-events-none'}
                 `}
                 style={{
                     clipPath: menuOpen ? 'circle(150% at 100% 0)' : 'circle(0% at 100% 0)'
                 }}
             >
-                {/* Background Noise on Menu */}
-                <div className="absolute inset-0 bg-noise opacity-[0.05] pointer-events-none" />
+                {/* Background Noise */}
+                <div className="absolute inset-0 bg-noise opacity-[0.04] pointer-events-none" />
 
                 <div className="h-full flex flex-col justify-center px-8 relative z-10 max-w-4xl mx-auto">
-                    <nav className="flex flex-col gap-8">
+                    <nav className="flex flex-col gap-4">
                         {[
-                            ['Current Sale', '#sale'],
-                            ['Property Contents', '#gallery'],
-                            ['How It Works', '#shoppers'],
-                            ['Contact Us', '#families']
-                        ].map(([label, id], i) => (
-                            <button 
-                                key={id} 
-                                onClick={() => scrollTo(id)} 
-                                className="text-left font-display text-5xl md:text-8xl font-light hover:text-sage transition-colors duration-300 opacity-0 animate-fade-up"
-                                style={{ animationDelay: `${200 + (i * 100)}ms`, animationFillMode: 'forwards' }}
-                            >
-                                {label}
-                            </button>
+                            { label: 'Services', to: '/', type: 'link' as const },
+                            { label: 'About', to: '/#about', type: 'scroll' as const },
+                            { label: 'Current Sale', to: '/sales', type: 'link' as const },
+                            { label: 'Get Notified', to: '/shop', type: 'link' as const, accent: true },
+                        ].map((item, i) => (
+                            item.type === 'scroll' ? (
+                                <button
+                                    key={item.to}
+                                    onClick={scrollToAbout}
+                                    className={`
+                                        text-left font-display text-4xl sm:text-5xl md:text-6xl font-light
+                                        transition-all duration-300 opacity-0 animate-fade-up
+                                        text-cream/70 hover:text-sage
+                                    `}
+                                    style={{ animationDelay: `${200 + (i * 80)}ms`, animationFillMode: 'forwards' }}
+                                >
+                                    {item.label}
+                                </button>
+                            ) : (
+                                <Link
+                                    key={item.to}
+                                    to={item.to}
+                                    className={`
+                                        text-left font-display text-4xl sm:text-5xl md:text-6xl font-light
+                                        transition-all duration-300 opacity-0 animate-fade-up
+                                        ${item.accent
+                                            ? 'text-sage hover:text-sage-light'
+                                            : location.pathname === item.to
+                                                ? 'text-cream'
+                                                : 'text-cream/70 hover:text-sage'
+                                        }
+                                    `}
+                                    style={{ animationDelay: `${200 + (i * 80)}ms`, animationFillMode: 'forwards' }}
+                                >
+                                    {item.label}
+                                </Link>
+                            )
                         ))}
                     </nav>
-                    
-                    <div className="mt-16 pt-16 border-t border-cream/10 grid grid-cols-2 gap-12 opacity-0 animate-fade-up" style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}>
-                        <div>
-                            <div className="font-mono text-xs uppercase tracking-widest text-sage mb-3">Email</div>
-                            <div className="text-xl md:text-2xl font-display">{DATA.config.email}</div>
-                        </div>
-                        <div>
-                            <div className="font-mono text-xs uppercase tracking-widest text-sage mb-3">Social</div>
-                            <div className="text-xl md:text-2xl font-display">@heartandhome</div>
+
+                    {/* Contact Info in Menu */}
+                    <div className="mt-16 pt-12 border-t border-cream/10 opacity-0 animate-fade-up" style={{ animationDelay: '520ms', animationFillMode: 'forwards' }}>
+                        <a
+                            href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
+                            className="flex items-center gap-4 mb-8 group"
+                        >
+                            <div className="w-12 h-12 rounded-full bg-sage/20 flex items-center justify-center group-hover:bg-sage/30 transition-colors">
+                                <Icon name="phone" s={20} />
+                            </div>
+                            <div>
+                                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/50 mb-1">Call {DATA.config.owner}</div>
+                                <div className="text-2xl font-display group-hover:text-sage transition-colors">{DATA.config.phone}</div>
+                            </div>
+                        </a>
+
+                        <div className="grid grid-cols-2 gap-8 text-sm">
+                            <div>
+                                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-2">Email</div>
+                                <a href={`mailto:${DATA.config.email}`} className="font-display text-cream/80 hover:text-sage transition-colors">
+                                    {DATA.config.email}
+                                </a>
+                            </div>
+                            <div>
+                                <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-2">Service Area</div>
+                                <div className="font-display text-cream/80">{DATA.config.areaShort || DATA.config.area}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
