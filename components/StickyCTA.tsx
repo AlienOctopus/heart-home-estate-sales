@@ -88,7 +88,7 @@ export const StickyCTA: React.FC = () => {
                     {isHomePage ? (
                         <>
                             <div className="flex flex-col">
-                                <span className="font-mono text-[11px] uppercase tracking-widest text-sage">Free Consultation</span>
+                                <span className="font-mono text-[11px] uppercase tracking-widest text-sage">Private Consultation</span>
                                 <span className="font-display text-lg font-medium leading-none pb-0.5">Talk to {DATA.config.owner}</span>
                             </div>
                             <a

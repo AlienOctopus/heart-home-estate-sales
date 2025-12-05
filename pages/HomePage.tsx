@@ -81,7 +81,7 @@ export const HomePage: React.FC = () => {
                         </p>
                         {/* Primary CTA - For families needing help */}
                         <div className="mb-2">
-                            <span className="font-mono text-xs uppercase tracking-widest text-olive/50">Free Consultation</span>
+                            <span className="font-mono text-xs uppercase tracking-widest text-olive/50">Private Consultation</span>
                         </div>
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
@@ -90,7 +90,6 @@ export const HomePage: React.FC = () => {
                             <Icon name="phone" s={18} />
                             <span className="font-mono tracking-wide">{DATA.config.phone}</span>
                         </a>
-                        <p className="mt-3 text-sm text-olive/50">Talk to {DATA.config.owner} directly.</p>
 
                         {/* Secondary CTA - For shoppers looking for sales */}
                         <div className="mt-6 pt-5 border-t border-olive/10">
@@ -132,7 +131,7 @@ export const HomePage: React.FC = () => {
                         href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
                         className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-sage hover:text-cream transition-colors"
                     >
-                        <span className="font-mono text-xs sm:text-sm uppercase tracking-widest">Free Consultation</span>
+                        <span className="font-mono text-xs sm:text-sm uppercase tracking-widest">Private Consultation</span>
                         <span className="font-display text-lg sm:text-xl">{DATA.config.phone}</span>
                     </a>
                 </div>
