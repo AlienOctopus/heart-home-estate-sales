@@ -152,15 +152,15 @@ export const Header: React.FC = () => {
                             className={`
                                 md:hidden flex items-center justify-center rounded-full transition-all duration-300
                                 ${menuOpen
-                                    ? 'w-11 h-11 bg-sage text-cream'
+                                    ? 'w-11 h-11 bg-cream/20 text-cream'
                                     : scrolled
-                                        ? 'w-9 h-9 bg-olive text-cream'
+                                        ? 'w-10 h-10 bg-olive text-cream'
                                         : 'w-11 h-11 bg-olive text-cream shadow-sm'
                                 }
                             `}
                             aria-label="Call us"
                         >
-                            <Icon name="phone" s={scrolled && !menuOpen ? 16 : 18} />
+                            <Icon name="phone" s={18} />
                         </a>
 
                         {/* Mobile Toggle */}
@@ -169,17 +169,16 @@ export const Header: React.FC = () => {
                             className={`
                                 md:hidden flex items-center justify-center rounded-full transition-all duration-300
                                 ${menuOpen
-                                    ? 'w-11 h-11 text-cream hover:bg-cream/10'
+                                    ? 'w-11 h-11 bg-cream/20 text-cream hover:bg-cream/30'
                                     : scrolled
-                                        ? 'w-9 h-9 text-olive hover:bg-olive/5'
+                                        ? 'w-10 h-10 bg-olive/10 text-olive hover:bg-olive/20'
                                         : 'w-11 h-11 text-olive hover:bg-white/50'
                                 }
                             `}
-                            aria-label="Toggle Menu"
+                            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                            aria-expanded={menuOpen}
                         >
-                            <div className={`flex items-center justify-center transition-all duration-300 ${scrolled && !menuOpen ? 'w-5 h-5' : 'w-6 h-6'}`}>
-                                {menuOpen ? <Icon name="x" s={24} /> : <Icon name="menu" s={scrolled ? 20 : 24} />}
-                            </div>
+                            <Icon name={menuOpen ? 'x' : 'menu'} s={22} />
                         </button>
                     </div>
                 </div>

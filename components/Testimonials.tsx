@@ -34,7 +34,7 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Quote Display */}
-                <div className="relative min-h-[280px] md:min-h-[240px]">
+                <div className="relative min-h-[320px] sm:min-h-[280px] md:min-h-[240px]">
                     {DATA.testimonials.map((t, i) => (
                         <div
                             key={i}
@@ -45,40 +45,43 @@ export const Testimonials: React.FC = () => {
                             }`}
                         >
                             {/* Large Quote Mark */}
-                            <div className="text-[8rem] md:text-[10rem] font-display text-olive/5 leading-none select-none absolute -top-16 left-1/2 -translate-x-1/2">
+                            <div className="text-[6rem] sm:text-[8rem] md:text-[10rem] font-display text-olive/5 leading-none select-none absolute -top-10 sm:-top-16 left-1/2 -translate-x-1/2">
                                 "
                             </div>
 
-                            <blockquote className="font-display text-2xl md:text-4xl lg:text-5xl text-olive leading-snug tracking-tight max-w-4xl mb-10 relative z-10">
+                            <blockquote className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl text-olive leading-snug tracking-tight max-w-4xl mb-8 sm:mb-10 relative z-10 px-2">
                                 "{t.quote}"
                             </blockquote>
 
-                            <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-olive text-cream flex items-center justify-center font-mono text-sm font-bold">
+                            <div className="flex items-center gap-3 sm:gap-4">
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-olive text-cream flex items-center justify-center font-mono text-xs sm:text-sm font-bold">
                                     {t.init}
                                 </div>
                                 <div className="text-left">
-                                    <div className="font-display text-lg text-olive">{t.name}</div>
-                                    <div className="font-mono text-xs text-olive-muted uppercase tracking-wider">{t.ctx}</div>
+                                    <div className="font-display text-base sm:text-lg text-olive">{t.name}</div>
+                                    <div className="font-mono text-[10px] sm:text-xs text-olive-muted uppercase tracking-wider">{t.ctx}</div>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Navigation Dots */}
-                <div className="flex justify-center gap-3 mt-12">
+                {/* Navigation Dots - WCAG compliant touch targets */}
+                <div className="flex justify-center gap-1 mt-10 md:mt-12">
                     {DATA.testimonials.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => handleDotClick(i)}
-                            className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                                active === i
-                                    ? 'bg-olive w-8'
-                                    : 'bg-olive/20 hover:bg-olive/40'
-                            }`}
+                            className="p-3 group"
                             aria-label={`View testimonial ${i + 1}`}
-                        />
+                            aria-current={active === i ? 'true' : undefined}
+                        >
+                            <span className={`block rounded-full transition-all duration-300 ${
+                                active === i
+                                    ? 'bg-olive w-8 h-2'
+                                    : 'bg-olive/20 group-hover:bg-olive/40 w-2 h-2'
+                            }`} />
+                        </button>
                     ))}
                 </div>
             </div>
