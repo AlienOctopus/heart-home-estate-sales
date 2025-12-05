@@ -14,7 +14,7 @@ export const HomePage: React.FC = () => {
             <JsonLd includeFAQ={true} includeEvent={true} />
 
             {/* Hero - The Pain Point */}
-            <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-20 relative overflow-hidden">
+            <section className="min-h-screen flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-20 pt-24 sm:pt-28 pb-16 sm:pb-20 relative overflow-hidden">
                 {/* Hero Image - Desktop: full-bleed right with gradient dissolution */}
                 <div className="absolute top-32 right-0 w-[50%] h-[75vh] hidden lg:block pointer-events-none select-none">
                     <div className="relative w-full h-full">
@@ -34,28 +34,31 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
-                    {/* Premium badge */}
-                    <div className="mb-6 md:mb-8">
-                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-olive/15 bg-cream/80 backdrop-blur-sm">
-                            <span className="w-1.5 h-1.5 rounded-full bg-sage"></span>
-                            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-olive/60">Full-Service Estate Liquidation · East Bay Area</span>
+                    {/* Premium badge - mobile optimized */}
+                    <div className="mb-5 sm:mb-6 md:mb-8">
+                        <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-olive/15 bg-cream/80 backdrop-blur-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-sage flex-shrink-0"></span>
+                            <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.2em] text-olive/60">
+                                <span className="hidden sm:inline">Full-Service Estate Liquidation · East Bay Area</span>
+                                <span className="sm:hidden">Estate Liquidation · East Bay</span>
+                            </span>
                         </span>
                     </div>
 
-                    {/* Main headline */}
-                    <h1 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-6 max-w-4xl">
+                    {/* Main headline - tighter mobile spacing */}
+                    <h1 className="font-display text-[2.25rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.92] sm:leading-[0.95] tracking-tighter text-olive mb-5 sm:mb-6 max-w-4xl">
                         <span className="block">This Is the Part</span>
                         <span className="block">No One Prepares</span>
                         <span className="block">You For</span>
                     </h1>
 
                     {/* Accent line */}
-                    <p className="font-display text-xl sm:text-2xl md:text-3xl text-sage italic mb-10 max-w-2xl">
+                    <p className="font-display text-lg sm:text-2xl md:text-3xl text-sage italic mb-8 sm:mb-10 max-w-2xl">
                         Not the funeral. Not the paperwork.
                     </p>
 
                     {/* Mobile hero image - landscape version, full bleed */}
-                    <div className="lg:hidden mb-10 -mx-6 md:-mx-12">
+                    <div className="lg:hidden mb-8 sm:mb-10 -mx-5 sm:-mx-6 md:-mx-12">
                         <div className="relative aspect-[16/10] overflow-hidden">
                             <img
                                 src="/images/treasures-flatlay.webp"
@@ -72,38 +75,38 @@ export const HomePage: React.FC = () => {
                     </div>
 
                     {/* The hook - emotional, specific */}
-                    <div className="max-w-xl mb-16">
-                        <p className="font-display text-xl md:text-2xl lg:text-3xl text-olive font-medium leading-snug tracking-tight mb-6">
+                    <div className="max-w-xl mb-12 sm:mb-16">
+                        <p className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-olive font-medium leading-snug tracking-tight mb-5 sm:mb-6">
                             But standing in that living room, realizing a lifetime of everything is now yours to figure out.
                         </p>
-                        <p className="text-lg md:text-xl text-olive/60 leading-relaxed mb-8">
+                        <p className="text-base sm:text-lg md:text-xl text-olive/60 leading-relaxed mb-6 sm:mb-8">
                             The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still carrying everything else. You don't have to do this alone.
                         </p>
                         {/* Primary CTA - For families needing help */}
                         <div className="mb-2">
-                            <span className="font-mono text-xs uppercase tracking-widest text-olive/50">Private Consultation</span>
+                            <span className="font-mono text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-olive/50">Private Consultation</span>
                         </div>
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
-                            className="inline-flex items-center justify-center gap-3 bg-olive text-cream w-full sm:w-auto px-8 py-4 rounded-full font-medium hover:bg-olive-muted transition-colors group min-h-[52px]"
+                            className="inline-flex items-center justify-center gap-2.5 sm:gap-3 bg-olive text-cream w-full sm:w-auto px-6 sm:px-8 py-4 rounded-full font-medium hover:bg-olive-muted transition-colors group min-h-[52px]"
                         >
                             <Icon name="phone" s={18} />
-                            <span className="font-mono tracking-wide">{DATA.config.phone}</span>
+                            <span className="font-mono tracking-wide text-[15px] sm:text-base">{DATA.config.phone}</span>
                         </a>
 
                         {/* Secondary CTA - For shoppers looking for sales */}
-                        <div className="mt-6 pt-5 border-t border-olive/10">
-                            <p className="text-sm text-olive/50 mb-3">Looking for estate sales in the East Bay Area?</p>
+                        <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-olive/10">
+                            <p className="text-sm text-olive/50 mb-2.5 sm:mb-3">Looking for estate sales in the East Bay Area?</p>
                             <a
                                 href="/alerts"
                                 className="inline-flex items-center gap-2 text-sage hover:text-olive transition-colors text-sm font-medium group py-3 -my-3 pr-2"
                             >
-                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                     <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
                                     <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
                                 </svg>
                                 <span>Get notified about upcoming sales</span>
-                                <Icon name="right" s={14} className="group-hover:translate-x-1 transition-transform" />
+                                <Icon name="right" s={14} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
                             </a>
                         </div>
                     </div>
