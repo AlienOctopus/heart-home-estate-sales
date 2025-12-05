@@ -1,19 +1,13 @@
 import { AppData } from './types';
-
-// ============================================================================
-// SITE CONFIGURATION - UPDATE THESE BEFORE LAUNCH
-// ============================================================================
-// Domain: Set your production domain here (with www. prefix)
-// After setting, also update: index.html, public/robots.txt, public/sitemap.xml
-const SITE_DOMAIN = "www.example.com"; // TODO: Update before launch
-const SITE_URL = `https://${SITE_DOMAIN}`;
+import { SITE_URL } from './domain.config';
 
 export const DATA: AppData = {
     config: {
         name: "Heart & Home",
         legalName: "Heart & Home Estate Sales",
         phone: "(925) 544-7051",
-        email: `hello@${SITE_DOMAIN.replace('www.', '')}`, // Remove www for email
+        email: "shauna@heartandhomeestatesale.com", // Note: email domain differs from site domain
+        tagline: "Where memories find new homes.",
         url: SITE_URL,
         area: "Brentwood, Danville, Blackhawk & the Tri-Valley",
         areaShort: "East Bay",
@@ -42,7 +36,8 @@ export const DATA: AppData = {
         foundingDate: "2024",
         logo: "/images/logo.png",
         image: "/images/hero-living-room.webp",
-        instagramUrl: "https://instagram.com/heartandhomeestatesales",
+        facebookUrl: "https://www.facebook.com/people/Heart-Home-Estate-Sales/61584222547232/",
+        instagramUrl: "", // Not set up yet
         stats: { families: 0, saleMin: 8000, saleMax: 15000 }, // New business - will grow
         owner: "Shauna",
         creds: "Bonded & Insured • Family-Owned",
@@ -55,23 +50,23 @@ export const DATA: AppData = {
         ]
     },
     sale: {
-        name: "The Whitfield Estate",
-        hook: "47 years of one family's treasures",
+        name: "The Baxter Estate",
+        hook: "52 years of treasures from a beloved Brentwood family",
         highlights: ["Mid-century furniture", "Vintage kitchenware", "Hand tools"],
         counts: { shown: 127, total: 300 },
         dates: [
-            { day: "Saturday", date: "March 15", time: "8am – 4pm" },
-            { day: "Sunday", date: "March 16", time: "10am – 3pm" },
+            { day: "Saturday", date: "January 18", time: "8am – 4pm" },
+            { day: "Sunday", date: "January 19", time: "10am – 3pm" },
         ],
-        saleDate: "2024-03-15T08:00:00",
-        address: { short: "1847 Maple Grove Ln", city: "Springfield", full: "1847 Maple Grove Lane, Springfield, MO 65807" },
+        saleDate: "2025-01-18T08:00:00",
+        address: { short: "Shadow Lakes", city: "Brentwood", full: "Shadow Lakes, Brentwood, CA 94513" },
         items: [
             { 
                 id: 1, 
                 title: "Walnut Credenza", 
                 desc: "Mid-century, brass legs, original finish", 
                 cat: "furniture", 
-                story: "Mrs. Whitfield bought this in 1962 on her honeymoon trip to California.",
+                story: "Purchased in 1962 on a honeymoon trip to San Francisco.",
                 image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&q=80&w=800"
             },
             { 
@@ -86,7 +81,7 @@ export const DATA: AppData = {
                 title: "Craftsman Tool Chest", 
                 desc: "52-inch rolling cabinet", 
                 cat: "tools", 
-                story: "Mr. Whitfield was a woodworker for 40 years.",
+                story: "Used by a dedicated woodworker for over 40 years.",
                 image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&q=80&w=800"
             },
             { 
@@ -95,13 +90,6 @@ export const DATA: AppData = {
                 desc: "Kodak, Polaroid collection", 
                 cat: "vintage",
                 image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800"
-            },
-            { 
-                id: 8, 
-                title: "Hand-Stitched Quilts", 
-                desc: "Three quilts, embroidered linens", 
-                cat: "textiles",
-                image: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?auto=format&fit=crop&q=80&w=800"
             },
         ]
     },

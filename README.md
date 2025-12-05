@@ -25,11 +25,11 @@ Deployed to Vercel. Push to `main` to deploy.
 Before going live, update the following:
 
 ### 1. Domain Configuration
-Search and replace `www.example.com` with your actual domain in:
-- `constants.ts` - Line 8: `SITE_DOMAIN`
-- `index.html` - Canonical URL and Open Graph tags
-- `public/robots.txt` - Sitemap URL
-- `public/sitemap.xml` - All URLs
+**One file to edit:** Set your domain in `domain.config.ts`:
+```typescript
+export const SITE_DOMAIN = "www.yoursite.com";
+```
+The build process automatically injects this domain into all files (index.html, robots.txt, sitemap.xml, etc.)
 
 ### 2. Business Data (`constants.ts`)
 - [ ] `address.street` - Currently placeholder "123 Main Street"

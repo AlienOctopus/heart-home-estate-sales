@@ -120,7 +120,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         "alternateName": config.name,
         "legalName": config.legalName,
         "description": `Full-service estate sales for ${config.area}. We handle pricing, staging, photography, marketing, and the entire sale so you don't have to. ${config.creds}.`,
-        "slogan": "The house is heavy. We help you lift it.",
+        "slogan": config.tagline || "Where memories find new homes.",
         "url": baseUrl,
         "telephone": config.phone,
         "email": config.email,
@@ -152,7 +152,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         "currenciesAccepted": "USD",
         "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Venmo"],
         "contactPoint": contactPoint,
-        "sameAs": [config.instagramUrl].filter(Boolean),
+        "sameAs": [config.facebookUrl, config.instagramUrl].filter(Boolean),
         "knowsAbout": [
             "Estate Sales",
             "Estate Liquidation",

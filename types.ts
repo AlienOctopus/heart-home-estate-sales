@@ -51,6 +51,7 @@ export interface AppData {
     legalName?: string;
     phone: string;
     email: string;
+    tagline?: string;
     url?: string;
     area: string;
     areaShort?: string;
@@ -72,7 +73,8 @@ export interface AppData {
     foundingDate?: string;
     logo?: string;
     image?: string;
-    instagramUrl: string;
+    facebookUrl?: string;
+    instagramUrl?: string;
     stats: { families: number; saleMin: number; saleMax: number };
     owner: string;
     creds: string;

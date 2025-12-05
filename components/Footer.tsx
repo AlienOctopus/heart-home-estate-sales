@@ -78,6 +78,11 @@ export const Footer: React.FC = () => {
                         <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mt-1">
                             Estate Sales
                         </p>
+                        {DATA.config.tagline && (
+                            <p className="font-display text-sm text-cream/50 italic mt-3">
+                                {DATA.config.tagline}
+                            </p>
+                        )}
                     </div>
                 </div>
 
