@@ -34,7 +34,7 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Quote Display */}
-                <div className="relative min-h-[320px] sm:min-h-[280px] md:min-h-[240px]">
+                <div className="relative min-h-[240px] sm:min-h-[260px] md:min-h-[240px]">
                     {DATA.testimonials.map((t, i) => (
                         <div
                             key={i}
@@ -67,7 +67,7 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Navigation Dots - WCAG compliant touch targets */}
-                <div className="flex justify-center gap-1 mt-10 md:mt-12">
+                <div className="flex justify-center gap-1 mt-4 sm:mt-8 md:mt-12">
                     {DATA.testimonials.map((_, i) => (
                         <button
                             key={i}
