@@ -60,14 +60,14 @@ export const StickyCTA: React.FC = () => {
                 <div className="bg-olive/95 backdrop-blur-xl text-cream p-2 rounded-2xl shadow-2xl border border-cream/20 flex gap-2">
                     <a
                         href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
-                        className="flex-1 bg-cream text-olive py-4 rounded-xl font-mono text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-white transition-colors"
+                        className="flex-1 bg-cream text-olive py-4 rounded-xl text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-white transition-colors"
                     >
                         <Icon name="phone" s={18} />
                         Call Now
                     </a>
                     <a
                         href={`sms:${DATA.config.phone.replace(/\D/g, '')}`}
-                        className="flex-1 border-2 border-cream text-cream py-4 rounded-xl font-mono text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-cream/10 transition-colors"
+                        className="flex-1 border-2 border-cream text-cream py-4 rounded-xl text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 hover:bg-cream/10 transition-colors"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -88,12 +88,12 @@ export const StickyCTA: React.FC = () => {
                     {isHomePage ? (
                         <>
                             <div className="flex flex-col">
-                                <span className="font-mono text-[11px] uppercase tracking-widest text-sage">Private Consultation</span>
+                                <span className="text-[11px] uppercase tracking-widest text-sage font-medium">Private Consultation</span>
                                 <span className="font-display text-lg font-medium leading-none pb-0.5">Talk to {DATA.config.owner}</span>
                             </div>
                             <a
                                 href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
-                                className="bg-cream text-olive px-6 py-3 rounded-full font-mono text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-white transition-colors"
+                                className="bg-cream text-olive px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-white transition-colors tabular-nums"
                             >
                                 <Icon name="phone" s={16} />
                                 {DATA.config.phone}
@@ -102,14 +102,14 @@ export const StickyCTA: React.FC = () => {
                     ) : isSalesPage ? (
                         <>
                             <div className="flex flex-col">
-                                <span className="font-mono text-[11px] uppercase tracking-widest text-sage">Next Sale</span>
+                                <span className="text-[11px] uppercase tracking-widest text-sage font-medium">Next Sale</span>
                                 <span className="font-display text-lg font-medium leading-none pb-0.5">{DATA.sale.dates[0].day} • {DATA.sale.dates[0].time}</span>
                             </div>
                             <a
                                 href={`https://maps.google.com/?q=${encodeURIComponent(DATA.sale.address.full)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="bg-cream text-olive px-6 py-3 rounded-full font-mono text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-white transition-colors"
+                                className="bg-cream text-olive px-6 py-3 rounded-full text-sm font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-white transition-colors"
                             >
                                 Get Directions <Icon name="right" s={16} />
                             </a>

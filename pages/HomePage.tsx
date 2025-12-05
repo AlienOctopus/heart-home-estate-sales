@@ -38,9 +38,9 @@ export const HomePage: React.FC = () => {
                     <div className="mb-5 sm:mb-6 md:mb-8">
                         <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-olive/15 bg-cream/80 backdrop-blur-sm">
                             <span className="w-1.5 h-1.5 rounded-full bg-sage flex-shrink-0"></span>
-                            <span className="font-mono text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.2em] text-olive/60">
-                                <span className="hidden sm:inline">Full-Service Estate Liquidation · East Bay Area</span>
-                                <span className="sm:hidden">Estate Liquidation · East Bay</span>
+                            <span className="text-[11px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-olive/60 font-medium">
+                                <span className="hidden sm:inline">Full-Service Estate Sales · East Bay Area</span>
+                                <span className="sm:hidden">Estate Sales · East Bay</span>
                             </span>
                         </span>
                     </div>
@@ -84,14 +84,14 @@ export const HomePage: React.FC = () => {
                         </p>
                         {/* Primary CTA - For families needing help */}
                         <div className="mb-2">
-                            <span className="font-mono text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-olive/50">Private Consultation</span>
+                            <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-olive/50 font-medium">Private Consultation</span>
                         </div>
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
                             className="inline-flex items-center justify-center gap-2.5 sm:gap-3 bg-olive text-cream w-full sm:w-auto px-6 sm:px-8 py-4 rounded-full font-medium hover:bg-olive-muted transition-colors group min-h-[52px]"
                         >
                             <Icon name="phone" s={18} />
-                            <span className="font-mono tracking-wide text-[15px] sm:text-base">{DATA.config.phone}</span>
+                            <span className="tracking-wide text-[15px] sm:text-base tabular-nums">{DATA.config.phone}</span>
                         </a>
 
                         {/* Secondary CTA - For shoppers looking for sales */}
@@ -117,25 +117,25 @@ export const HomePage: React.FC = () => {
                         className="flex items-center gap-3 text-olive/40 hover:text-olive/60 transition-colors cursor-pointer"
                     >
                         <div className="w-px h-12 bg-olive/20"></div>
-                        <span className="font-mono text-xs uppercase tracking-widest">Keep reading</span>
+                        <span className="text-xs uppercase tracking-widest font-medium">Keep reading</span>
                         <Icon name="down" s={16} />
                     </button>
                 </div>
             </section>
 
             {/* The Permission Statement - increased padding */}
-            <section id="permission" className="py-24 md:py-48 px-6 md:px-12 lg:px-20 bg-olive text-cream scroll-mt-16">
+            <section id="permission" className="py-20 sm:py-24 md:py-48 px-5 sm:px-6 md:px-12 lg:px-20 bg-olive text-cream scroll-mt-16">
                 <div className="max-w-[1000px] mx-auto text-center">
-                    <p className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug tracking-tight mb-8 md:mb-10">
+                    <p className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl leading-snug tracking-tight mb-8 md:mb-10">
                         Your family's legacy deserves expertise—
-                        <span className="text-cream/60 block sm:inline"> not a crash course in estate liquidation.</span>
+                        <span className="text-cream/60 block mt-1 sm:mt-0 sm:inline"> not a crash course in estate liquidation.</span>
                     </p>
                     <a
                         href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
-                        className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-sage hover:text-cream transition-colors"
+                        className="inline-flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-sage/50 hover:border-sage hover:bg-sage/10 transition-all"
                     >
-                        <span className="font-mono text-xs sm:text-sm uppercase tracking-widest">Private Consultation</span>
-                        <span className="font-display text-lg sm:text-xl">{DATA.config.phone}</span>
+                        <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-sage font-medium">Private Consultation</span>
+                        <span className="text-lg sm:text-xl text-cream tracking-wide tabular-nums">{DATA.config.phone}</span>
                     </a>
                 </div>
             </section>
@@ -172,7 +172,7 @@ export const HomePage: React.FC = () => {
                             ].map((step, i) => (
                                 <div key={i} className="group border-t border-olive/10 first:border-t-0 py-8 md:py-10">
                                     <div className="flex gap-4 md:gap-6">
-                                        <span className="font-mono text-xl text-sage flex-shrink-0">→</span>
+                                        <span className="text-xl text-sage flex-shrink-0">→</span>
                                         <div>
                                             <h3 className="font-display text-xl md:text-2xl lg:text-3xl text-olive tracking-tight mb-2">
                                                 {step.title}
@@ -224,7 +224,7 @@ export const HomePage: React.FC = () => {
                                 </p>
                             </div>
                             <div className="bg-cream-dark rounded-sm p-6 sm:p-8 md:p-10 border border-olive/5">
-                                <h3 className="font-mono text-xs uppercase tracking-widest text-sage mb-5 md:mb-6">What We Handle</h3>
+                                <h3 className="text-xs uppercase tracking-widest text-sage mb-5 md:mb-6 font-semibold">What We Handle</h3>
                                 <ul className="space-y-3 sm:space-y-4">
                                     {[
                                         "Sorting, organizing, and staging the entire home",
@@ -257,7 +257,7 @@ export const HomePage: React.FC = () => {
                             </div>
                             <div className="absolute -bottom-2 right-0 md:-bottom-4 md:-right-4 bg-white rounded-sm p-3 sm:p-4 shadow-lg border border-olive/5">
                                 <p className="font-display text-base sm:text-lg text-olive">Hi, I'm {DATA.config.owner}.</p>
-                                <p className="font-mono text-[10px] sm:text-xs text-olive/60 uppercase tracking-wider">Owner & Founder</p>
+                                <p className="text-[10px] sm:text-xs text-olive/60 uppercase tracking-wider font-medium">Owner & Founder</p>
                             </div>
                         </div>
                     </div>
@@ -336,7 +336,7 @@ export const HomePage: React.FC = () => {
                             className="inline-flex items-center justify-center gap-3 sm:gap-4 bg-cream text-olive px-8 sm:px-10 py-5 sm:py-6 rounded-full text-lg sm:text-xl font-medium hover:bg-white transition-colors group"
                         >
                             <Icon name="phone" s={22} />
-                            <span className="font-mono tracking-wide">{DATA.config.phone}</span>
+                            <span className="tracking-wide tabular-nums">{DATA.config.phone}</span>
                         </a>
                     </div>
 
