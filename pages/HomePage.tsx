@@ -34,13 +34,25 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
-                    {/* Main headline - Fixed scale, no vw units */}
-                    <h1 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-10 max-w-4xl">
-                        <span className="block">For East Bay Families</span>
-                        <span className="block">Who Just Inherited</span>
-                        <span className="block">a House Full of</span>
-                        <span className="block text-sage italic">"Everything"</span>
+                    {/* Premium badge */}
+                    <div className="mb-6 md:mb-8">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-olive/15 bg-cream/80 backdrop-blur-sm">
+                            <span className="w-1.5 h-1.5 rounded-full bg-sage"></span>
+                            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-olive/60">Full-Service Estate Liquidation · East Bay</span>
+                        </span>
+                    </div>
+
+                    {/* Main headline */}
+                    <h1 className="font-display text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-6 max-w-4xl">
+                        <span className="block">This Is the Part</span>
+                        <span className="block">No One Prepares</span>
+                        <span className="block">You For</span>
                     </h1>
+
+                    {/* Accent line */}
+                    <p className="font-display text-xl sm:text-2xl md:text-3xl text-sage italic mb-10 max-w-2xl">
+                        Not the funeral. Not the paperwork.
+                    </p>
 
                     {/* Mobile hero image - landscape version, full bleed */}
                     <div className="lg:hidden mb-10 -mx-6 md:-mx-12">
@@ -61,14 +73,11 @@ export const HomePage: React.FC = () => {
 
                     {/* The hook - emotional, specific */}
                     <div className="max-w-xl mb-16">
-                        <p className="font-display text-2xl md:text-3xl lg:text-4xl text-olive/90 leading-snug tracking-tight mb-8">
-                            You shouldn't have to spend the next 6 weekends sorting through your mother's china.
+                        <p className="font-display text-xl md:text-2xl lg:text-3xl text-olive font-medium leading-snug tracking-tight mb-6">
+                            But standing in that living room, realizing a lifetime of everything is now yours to figure out.
                         </p>
                         <p className="text-lg md:text-xl text-olive/60 leading-relaxed mb-8">
-                            You're grieving. You're exhausted. And now you're standing in a 3,200 sq. ft. house
-                            with 40 years of accumulated stuff—and somehow you're supposed to figure out what the
-                            Henredon dining set is worth, who wants the silver, and what to do with the 47 boxes
-                            in the garage labeled "miscellaneous."
+                            The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still carrying everything else. You don't have to do this alone. And you don't have to do it this weekend.
                         </p>
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
