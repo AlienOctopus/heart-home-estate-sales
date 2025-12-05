@@ -218,8 +218,8 @@ export const HomePage: React.FC = () => {
                                     src="/images/shauna.webp"
                                     alt={`${DATA.config.owner} - ${DATA.config.legalName}`}
                                     className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
-                                    width={1696}
-                                    height={2528}
+                                    width={1200}
+                                    height={1600}
                                     loading="lazy"
                                 />
                             </div>
