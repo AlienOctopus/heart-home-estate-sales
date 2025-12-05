@@ -148,16 +148,14 @@ export const Header: React.FC = () => {
                             <span className="font-mono text-xs tracking-tight">{DATA.config.phone}</span>
                         </a>
 
-                        {/* Mobile Phone Button */}
+                        {/* Mobile Phone Button - WCAG 2.5.5: 44px minimum touch target */}
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
                             className={`
-                                md:hidden flex items-center justify-center rounded-full transition-all duration-300
+                                md:hidden w-11 h-11 flex items-center justify-center rounded-full transition-all duration-300
                                 ${menuOpen
-                                    ? 'w-11 h-11 bg-cream/20 text-cream'
-                                    : scrolled
-                                        ? 'w-10 h-10 bg-olive text-cream'
-                                        : 'w-11 h-11 bg-olive text-cream shadow-sm'
+                                    ? 'bg-cream/20 text-cream'
+                                    : 'bg-olive text-cream shadow-sm'
                                 }
                             `}
                             aria-label="Call us"
@@ -165,16 +163,16 @@ export const Header: React.FC = () => {
                             <Icon name="phone" s={18} />
                         </a>
 
-                        {/* Mobile Toggle */}
+                        {/* Mobile Toggle - WCAG 2.5.5: 44px minimum touch target */}
                         <button
                             onClick={() => setMenuOpen(!menuOpen)}
                             className={`
-                                md:hidden flex items-center justify-center rounded-full transition-all duration-300
+                                md:hidden w-11 h-11 flex items-center justify-center rounded-full transition-all duration-300
                                 ${menuOpen
-                                    ? 'w-11 h-11 bg-cream/20 text-cream hover:bg-cream/30'
+                                    ? 'bg-cream/20 text-cream hover:bg-cream/30'
                                     : scrolled
-                                        ? 'w-10 h-10 bg-olive/10 text-olive hover:bg-olive/20'
-                                        : 'w-11 h-11 text-olive hover:bg-white/50'
+                                        ? 'bg-olive/10 text-olive hover:bg-olive/20'
+                                        : 'text-olive hover:bg-white/50'
                                 }
                             `}
                             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
