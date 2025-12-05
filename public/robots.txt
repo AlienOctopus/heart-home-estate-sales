@@ -1,0 +1,37 @@
+# Heart & Home Estate Sales
+# https://heartandhomeestatesales.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://heartandhomeestatesales.com/sitemap.xml
+
+# Crawl-delay for polite bots
+Crawl-delay: 1
+
+# Block AI training crawlers (optional - preserving content)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+# Allow social media crawlers for rich previews
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

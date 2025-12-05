@@ -15,7 +15,7 @@ export const StickyCTA: React.FC = () => {
         const handleScroll = () => {
             setShow(window.scrollY > 600);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 

@@ -221,18 +221,31 @@ export const HomePage: React.FC = () => {
             {/* The Distinction */}
             <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-cream-dark">
                 <div className="max-w-[900px] mx-auto">
-                    <div className="space-y-8 text-lg md:text-xl text-olive/80 leading-relaxed">
-                        <p>
-                            <strong className="font-display text-2xl md:text-3xl text-olive block mb-4">
-                                This is not a "clean-out" service.
-                            </strong>
-                            We don't haul your parents' life to a dump. We sell it—to collectors, dealers, 
-                            and neighbors who'll value it.
-                        </p>
-                        <p>
-                            The house empties. You get paid. And you never had to argue with your brother 
-                            about the grandfather clock.
-                        </p>
+                    <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+                        {/* Logo Badge - Editorial Seal */}
+                        <div className="flex-shrink-0 mx-auto md:mx-0">
+                            <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-lg ring-1 ring-olive/10">
+                                <img
+                                    src="/images/logo-badge.jpg"
+                                    alt="Heart & Home Estate Sales"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="space-y-8 text-lg md:text-xl text-olive/80 leading-relaxed">
+                            <p>
+                                <strong className="font-display text-2xl md:text-3xl text-olive block mb-4">
+                                    This is not a "clean-out" service.
+                                </strong>
+                                We don't haul your parents' life to a dump. We sell it—to collectors, dealers,
+                                and neighbors who'll value it.
+                            </p>
+                            <p>
+                                The house empties. You get paid. And you never had to argue with your brother
+                                about the grandfather clock.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -241,8 +254,7 @@ export const HomePage: React.FC = () => {
             <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
                 <div className="max-w-[900px] mx-auto">
                     <p className="text-lg md:text-xl text-olive/70 leading-relaxed mb-8">
-                        We serve Blackhawk, Danville, Alamo, Walnut Creek, Brentwood, Pleasanton, 
-                        Ruby Hill, and Livermore—and we're selective about the estates we take.
+                        We serve <span className="font-medium text-olive">Blackhawk</span>, <span className="font-medium text-olive">Danville</span>, <span className="font-medium text-olive">Alamo</span>, <span className="font-medium text-olive">Walnut Creek</span>, <span className="font-medium text-olive">Brentwood</span>, <span className="font-medium text-olive">Pleasanton</span>, <span className="font-medium text-olive">Ruby Hill</span>, and <span className="font-medium text-olive">Livermore</span>—and we're selective about the estates we take.
                     </p>
                     <p className="font-display text-2xl md:text-3xl text-olive tracking-tight leading-snug">
                         If the house is worth doing right, we should talk.

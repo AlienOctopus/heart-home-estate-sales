@@ -6,6 +6,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { HomePage } from './pages/HomePage';
 import { SalesPage } from './pages/SalesPage';
 import { ShopPage } from './pages/ShopPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/sales" element={<SalesPage />} />
           <Route path="/shop" element={<ShopPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
 
         <StickyCTA />

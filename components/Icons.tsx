@@ -1,7 +1,7 @@
 import React from 'react';
 
 export interface IconProps {
-  name: 'menu' | 'x' | 'phone' | 'heart' | 'pin' | 'down' | 'right' | 'check' | 'insta';
+  name: 'menu' | 'x' | 'phone' | 'heart' | 'pin' | 'down' | 'right' | 'left' | 'check' | 'insta';
   s?: number;
   className?: string;
 }
@@ -15,6 +15,7 @@ export const Icon: React.FC<IconProps> = ({ name, s = 24, className = "" }) => {
   else if (name === 'pin') content = <><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" /><circle cx="12" cy="10" r="3" /></>;
   else if (name === 'down') content = <polyline points="6 9 12 15 18 9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />;
   else if (name === 'right') content = <><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></>;
+  else if (name === 'left') content = <><line x1="19" y1="12" x2="5" y2="12" /><polyline points="12 19 5 12 12 5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></>;
   else if (name === 'check') content = <polyline points="20 6 9 17 4 12" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />;
   else if (name === 'insta') content = <><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01" /></>;
 
