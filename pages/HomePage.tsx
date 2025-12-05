@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
             {/* Hero - The Pain Point */}
             <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-20 relative overflow-hidden">
                 {/* Hero Image - Desktop: floating right with editorial fade */}
-                <div className="absolute top-24 right-0 w-[42%] h-[80vh] hidden lg:block pointer-events-none select-none">
+                <div className="absolute top-24 right-6 md:right-12 lg:right-20 w-[42%] h-[80vh] hidden lg:block pointer-events-none select-none">
                     <div className="relative w-full h-full">
                         {/* Left edge fade into cream background */}
                         <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-cream via-cream/80 to-transparent z-10" />
@@ -38,7 +38,7 @@ export const HomePage: React.FC = () => {
                     <div className="mb-6 md:mb-8">
                         <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-olive/15 bg-cream/80 backdrop-blur-sm">
                             <span className="w-1.5 h-1.5 rounded-full bg-sage"></span>
-                            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-olive/60">Full-Service Estate Liquidation · East Bay</span>
+                            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.2em] text-olive/60">Full-Service Estate Liquidation · East Bay Area</span>
                         </span>
                     </div>
 
@@ -80,6 +80,9 @@ export const HomePage: React.FC = () => {
                             The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still carrying everything else. You don't have to do this alone.
                         </p>
                         {/* Primary CTA - For families needing help */}
+                        <div className="mb-2">
+                            <span className="font-mono text-xs uppercase tracking-widest text-olive/50">Free Consultation</span>
+                        </div>
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
                             className="inline-flex items-center justify-center gap-3 bg-olive text-cream w-full sm:w-auto px-8 py-4 rounded-full font-medium hover:bg-olive-muted transition-colors group min-h-[52px]"
@@ -87,10 +90,11 @@ export const HomePage: React.FC = () => {
                             <Icon name="phone" s={18} />
                             <span className="font-mono tracking-wide">{DATA.config.phone}</span>
                         </a>
+                        <p className="mt-3 text-sm text-olive/50">Talk to {DATA.config.owner} directly.</p>
 
                         {/* Secondary CTA - For shoppers looking for sales */}
                         <div className="mt-6 pt-5 border-t border-olive/10">
-                            <p className="text-sm text-olive/50 mb-3">Looking for estate sales in the East Bay?</p>
+                            <p className="text-sm text-olive/50 mb-3">Looking for estate sales in the East Bay Area?</p>
                             <a
                                 href="/alerts"
                                 className="inline-flex items-center gap-2 text-sage hover:text-olive transition-colors text-sm font-medium group py-3 -my-3 pr-2"

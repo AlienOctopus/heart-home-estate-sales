@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
                             ? 'w-[calc(100%-1.5rem)] md:w-auto bg-olive/95 backdrop-blur-xl border-cream/10 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.3)] py-2.5 md:py-3 px-3 md:px-5'
                             : scrolled
                                 ? 'w-[calc(100%-1.5rem)] md:w-auto bg-cream/95 backdrop-blur-xl border-olive/[0.08] shadow-[0_8px_32px_-8px_rgba(0,0,0,0.12)] py-2.5 md:py-3 px-3 md:px-5'
-                                : 'w-full max-w-[1500px] px-6 md:px-12 py-6 bg-transparent border-transparent shadow-none'
+                                : 'w-full max-w-[1500px] px-6 md:px-12 lg:px-20 py-6 bg-transparent border-transparent shadow-none'
                         }
                     `}
                 >
