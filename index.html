@@ -13,7 +13,8 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Heart & Home">
-    <link rel="canonical" href="https://heartandhomeestatesales.com">
+    <!-- TODO: Update SITE_DOMAIN before launch -->
+    <link rel="canonical" href="https://www.example.com">
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -22,12 +23,12 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Facebook - TODO: Update SITE_DOMAIN before launch -->
     <meta property="og:type" content="business.business">
-    <meta property="og:url" content="https://heartandhomeestatesales.com">
+    <meta property="og:url" content="https://www.example.com">
     <meta property="og:title" content="Heart & Home Estate Sales | Brentwood, CA">
     <meta property="og:description" content="Full-service estate sales for Brentwood, Pleasanton, Walnut Creek & the East Bay. We handle everything so you don't have to.">
-    <meta property="og:image" content="https://heartandhomeestatesales.com/images/og-image.jpg">
+    <meta property="og:image" content="https://www.example.com/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Heart & Home Estate Sales - Full-service estate sales in the East Bay">
@@ -39,7 +40,7 @@
     <meta property="business:contact_data:postal_code" content="94513">
     <meta property="business:contact_data:country_name" content="United States">
     <meta property="business:contact_data:phone_number" content="+1-925-544-7051">
-    <meta property="business:contact_data:email" content="hello@heartandhomeestatesales.com">
+    <meta property="business:contact_data:email" content="hello@example.com">
     <meta property="place:location:latitude" content="37.9318">
     <meta property="place:location:longitude" content="-121.6958">
 
@@ -47,7 +48,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Heart & Home Estate Sales | Brentwood, CA">
     <meta name="twitter:description" content="Full-service estate sales for Brentwood, Pleasanton, Walnut Creek & the East Bay.">
-    <meta name="twitter:image" content="https://heartandhomeestatesales.com/images/og-image.jpg">
+    <meta name="twitter:image" content="https://www.example.com/images/og-image.jpg">
     <meta name="twitter:image:alt" content="Heart & Home Estate Sales - Full-service estate sales in the East Bay">
 
     <!-- Geo tags for local SEO -->
@@ -143,13 +144,49 @@
     <style>
       html { scroll-behavior: smooth; }
       body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      
+
       .hide-scrollbar::-webkit-scrollbar { display: none; }
       .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      
+
       /* Optical Borders */
       .border-optical {
         box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06), inset 0 1px 0 0 rgba(255,255,255,0.5);
+      }
+
+      /* Focus-visible for accessibility */
+      :focus-visible {
+        outline: 2px solid #A1997E;
+        outline-offset: 2px;
+      }
+
+      /* Remove default focus for mouse users */
+      :focus:not(:focus-visible) {
+        outline: none;
+      }
+
+      /* Reduced motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* Skip to content link */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        padding: 8px 16px;
+        background: #1F1E19;
+        color: #F7F5F0;
+        z-index: 100;
+        transition: top 0.2s;
+      }
+      .skip-link:focus {
+        top: 0;
       }
     </style>
   <script type="importmap">

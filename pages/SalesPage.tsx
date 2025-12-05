@@ -62,7 +62,7 @@ export const SalesPage: React.FC = () => {
     }, []);
 
     return (
-        <div className="bg-cream min-h-screen text-olive font-body">
+        <main id="main-content" className="bg-cream min-h-screen text-olive font-body">
             {/* JSON-LD Structured Data */}
             <JsonLd includeFAQ={false} includeEvent={true} page="sales" />
 
@@ -140,9 +140,12 @@ export const SalesPage: React.FC = () => {
                     <div className="relative hidden lg:block">
                         <div className="aspect-[4/5] rounded-sm overflow-hidden">
                             <img
-                                src="/images/sale-in-progress.jpg"
+                                src="/images/sale-in-progress.webp"
                                 alt="Estate sale preview"
                                 className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
+                                width={1376}
+                                height={768}
+                                loading="lazy"
                             />
                         </div>
                     </div>
@@ -170,6 +173,6 @@ export const SalesPage: React.FC = () => {
             </section>
 
             <Footer />
-        </div>
+        </main>
     );
 };

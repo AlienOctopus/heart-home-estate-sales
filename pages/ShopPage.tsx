@@ -30,7 +30,7 @@ export const ShopPage: React.FC = () => {
     };
 
     return (
-        <div className="bg-cream min-h-screen text-olive font-body">
+        <main id="main-content" className="bg-cream min-h-screen text-olive font-body">
             {/* JSON-LD Structured Data */}
             <JsonLd includeFAQ={false} includeEvent={true} page="shop" />
 
@@ -99,7 +99,7 @@ export const ShopPage: React.FC = () => {
                         <div className="flex flex-col md:flex-row md:items-center gap-8">
                             <div className="flex-shrink-0 w-full md:w-48 h-48 rounded-sm overflow-hidden bg-cream">
                                 <img
-                                    src="/images/treasures-flatlay.jpg"
+                                    src="/images/treasures-flatlay.webp"
                                     alt={DATA.sale.name}
                                     className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
                                 />
@@ -183,6 +183,6 @@ export const ShopPage: React.FC = () => {
             </section>
 
             <Footer />
-        </div>
+        </main>
     );
 };

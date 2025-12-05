@@ -25,9 +25,10 @@ export const StickyCTA: React.FC = () => {
     return (
         <div
             className={`
-                fixed bottom-6 left-4 right-4 z-40 transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1)
+                fixed left-4 right-4 z-40 transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1)
                 ${show ? 'translate-y-0 opacity-100' : 'translate-y-24 opacity-0 pointer-events-none'}
             `}
+            style={{ bottom: 'max(1.5rem, env(safe-area-inset-bottom, 1.5rem))' }}
         >
             {/* Mobile: Phone-first sticky bar */}
             <div className="md:hidden">

@@ -5,7 +5,7 @@ import { Icon } from '../components/Icons';
 
 export const NotFoundPage: React.FC = () => {
     return (
-        <div className="bg-cream min-h-screen text-olive font-body flex flex-col justify-center items-center px-6 py-32">
+        <main id="main-content" className="bg-cream min-h-screen text-olive font-body flex flex-col justify-center items-center px-6 py-32">
             <div className="text-center max-w-lg">
                 <div className="font-mono text-xs uppercase tracking-widest text-olive/40 mb-4">404</div>
                 <h1 className="font-display text-4xl md:text-5xl tracking-tight text-olive mb-6">
@@ -32,6 +32,6 @@ export const NotFoundPage: React.FC = () => {
                     </a>
                 </div>
             </div>
-        </div>
+        </main>
     );
 };

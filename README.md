@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Heart & Home Estate Sales
 
-# Run and deploy your AI Studio app
+Full-service estate sales website for the East Bay area.
 
-This contains everything you need to run your app locally.
+## Development
 
-View your app in AI Studio: https://ai.studio/apps/drive/15Aa7mezzx-eqlN84q2qGzW96h0jnCo-f
+```bash
+npm install
+npm run dev
+```
 
-## Run Locally
+## Build
 
-**Prerequisites:**  Node.js
+```bash
+npm run build
+npm run preview  # Preview production build locally
+```
 
+## Deployment
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Deployed to Vercel. Push to `main` to deploy.
+
+## Pre-Launch Checklist
+
+Before going live, update the following:
+
+### 1. Domain Configuration
+Search and replace `www.example.com` with your actual domain in:
+- `constants.ts` - Line 8: `SITE_DOMAIN`
+- `index.html` - Canonical URL and Open Graph tags
+- `public/robots.txt` - Sitemap URL
+- `public/sitemap.xml` - All URLs
+
+### 2. Business Data (`constants.ts`)
+- [ ] `address.street` - Currently placeholder "123 Main Street"
+- [ ] `sale.saleDate` - Currently past date (2024-03-15)
+- [ ] `sale.address` - Currently placeholder "Springfield, MO"
+
+### 3. Vercel Configuration
+- [ ] Add custom domain in Vercel dashboard
+- [ ] Configure `www` redirect (www → apex or apex → www)
+- [ ] Verify SSL certificate
+
+## Tech Stack
+
+- React 19 + TypeScript
+- Vite
+- Tailwind CSS (CDN)
+- React Router
+- Deployed on Vercel

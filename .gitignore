@@ -12,8 +12,16 @@ dist/
 dist-ssr/
 build/
 
+# Source assets (not needed in production)
+logos/
+images/
+
+# AI Studio artifacts
+metadata.json
+
 # OS files
 .DS_Store
+Thumbs.db
 
 # Logs
 logs
@@ -33,3 +41,7 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Editor backups
+*~
+*.bak

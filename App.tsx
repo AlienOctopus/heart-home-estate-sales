@@ -13,6 +13,11 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <div className="bg-cream min-h-screen text-olive font-body relative selection:bg-olive selection:text-cream">
+        {/* Skip to main content - accessibility */}
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
+
         {/* Global Noise Overlay */}
         <div className="fixed inset-0 pointer-events-none opacity-[0.04] z-[9999] bg-noise mix-blend-multiply" />
 

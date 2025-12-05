@@ -69,9 +69,11 @@ export const Header: React.FC = () => {
                     <Link to="/" className="flex items-center gap-3 group">
                         <div className={`relative transition-all duration-300 ${scrolled ? 'w-9 h-9' : 'w-11 h-11'} rounded-full overflow-hidden`}>
                             <img
-                                src="/images/logo-badge.jpg"
+                                src="/images/logo-badge.webp"
                                 alt="Heart & Home Estate Sales"
                                 className={`w-full h-full object-cover mix-blend-multiply transition-all duration-300 group-hover:scale-110 ${menuOpen ? 'brightness-[2] contrast-75' : ''}`}
+                                width={800}
+                                height={800}
                             />
                         </div>
                         <div className={`flex flex-col leading-none transition-all duration-300 ${scrolled ? 'gap-0' : 'gap-0.5'}`}>

@@ -9,7 +9,7 @@ import { JsonLd } from '../components/JsonLd';
 // Families-focused homepage - conversion optimized
 export const HomePage: React.FC = () => {
     return (
-        <div className="bg-cream min-h-screen text-olive font-body">
+        <main id="main-content" className="bg-cream min-h-screen text-olive font-body">
             {/* JSON-LD Structured Data */}
             <JsonLd includeFAQ={true} includeEvent={true} />
 
@@ -21,10 +21,12 @@ export const HomePage: React.FC = () => {
                         {/* Left edge fade into cream background */}
                         <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-cream via-cream/80 to-transparent z-10" />
                         <img
-                            src="/images/treasures-flatlay.jpg"
+                            src="/images/treasures-flatlay.webp"
                             alt="Treasured heirlooms - vintage teacups, silver, handwritten letters"
                             className="w-full h-full object-cover object-center opacity-90"
                             style={{ filter: 'grayscale(0.25) contrast(0.96) brightness(1.02)' }}
+                            width={1024}
+                            height={1024}
                         />
                         {/* Bottom fade */}
                         <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-cream via-cream/70 to-transparent z-10" />
@@ -43,10 +45,13 @@ export const HomePage: React.FC = () => {
                     <div className="lg:hidden mb-10 -mx-6 md:-mx-12">
                         <div className="relative aspect-[16/10] overflow-hidden">
                             <img
-                                src="/images/treasures-flatlay.jpg"
+                                src="/images/treasures-flatlay.webp"
                                 alt="Treasured heirlooms - vintage teacups, silver, handwritten letters"
                                 className="w-full h-full object-cover object-center"
                                 style={{ filter: 'grayscale(0.25) contrast(0.96) brightness(1.02)' }}
+                                width={1024}
+                                height={1024}
+                                loading="lazy"
                             />
                             {/* Bottom fade into content */}
                             <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent" />
@@ -152,10 +157,13 @@ export const HomePage: React.FC = () => {
                     {/* Editorial image anchor - newsprint treatment */}
                     <div className="hidden lg:block sticky top-32">
                         <div className="aspect-[4/5] rounded-sm overflow-hidden">
-                            <img 
+                            <img
                                 src="https://images.unsplash.com/photo-1618219908412-a29a1bb7b86e?auto=format&fit=crop&q=80&w=1200"
                                 alt="Estate interior"
                                 className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
+                                width={1200}
+                                height={1500}
+                                loading="lazy"
                             />
                         </div>
                     </div>
@@ -169,9 +177,12 @@ export const HomePage: React.FC = () => {
                         <div className="relative">
                             <div className="aspect-[3/4] rounded-sm overflow-hidden">
                                 <img
-                                    src="/images/shauna.jpg"
+                                    src="/images/shauna.webp"
                                     alt={`${DATA.config.owner} - ${DATA.config.legalName}`}
                                     className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
+                                    width={1696}
+                                    height={2528}
+                                    loading="lazy"
                                 />
                             </div>
                             <div className="absolute -bottom-4 -right-4 bg-white rounded-sm p-4 shadow-lg border border-olive/5">
@@ -226,9 +237,12 @@ export const HomePage: React.FC = () => {
                         <div className="flex-shrink-0 mx-auto md:mx-0">
                             <div className="w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-lg ring-1 ring-olive/10">
                                 <img
-                                    src="/images/logo-badge.jpg"
+                                    src="/images/logo-badge.webp"
                                     alt="Heart & Home Estate Sales"
                                     className="w-full h-full object-cover"
+                                    width={800}
+                                    height={800}
+                                    loading="lazy"
                                 />
                             </div>
                         </div>
@@ -316,6 +330,6 @@ export const HomePage: React.FC = () => {
             </section>
 
             <Footer />
-        </div>
+        </main>
     );
 };

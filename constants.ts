@@ -1,12 +1,20 @@
 import { AppData } from './types';
 
+// ============================================================================
+// SITE CONFIGURATION - UPDATE THESE BEFORE LAUNCH
+// ============================================================================
+// Domain: Set your production domain here (with www. prefix)
+// After setting, also update: index.html, public/robots.txt, public/sitemap.xml
+const SITE_DOMAIN = "www.example.com"; // TODO: Update before launch
+const SITE_URL = `https://${SITE_DOMAIN}`;
+
 export const DATA: AppData = {
     config: {
         name: "Heart & Home",
         legalName: "Heart & Home Estate Sales",
         phone: "(925) 544-7051",
-        email: "hello@heartandhomeestatesales.com",
-        url: "https://heartandhomeestatesales.com",
+        email: `hello@${SITE_DOMAIN.replace('www.', '')}`, // Remove www for email
+        url: SITE_URL,
         area: "Brentwood, Danville, Blackhawk & the Tri-Valley",
         areaShort: "East Bay",
         baseCity: "Brentwood, CA",
@@ -33,7 +41,7 @@ export const DATA: AppData = {
         ],
         foundingDate: "2024",
         logo: "/images/logo.png",
-        image: "/images/hero-living-room.jpg",
+        image: "/images/hero-living-room.webp",
         instagramUrl: "https://instagram.com/heartandhomeestatesales",
         stats: { families: 0, saleMin: 8000, saleMax: 15000 }, // New business - will grow
         owner: "Shauna",

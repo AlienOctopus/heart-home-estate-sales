@@ -1,11 +1,12 @@
 # Heart & Home Estate Sales
-# https://heartandhomeestatesales.com
+# TODO: Update SITE_DOMAIN before launch
+# https://www.example.com
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://heartandhomeestatesales.com/sitemap.xml
+# Sitemap - TODO: Update SITE_DOMAIN before launch
+Sitemap: https://www.example.com/sitemap.xml
 
 # Crawl-delay for polite bots
 Crawl-delay: 1
