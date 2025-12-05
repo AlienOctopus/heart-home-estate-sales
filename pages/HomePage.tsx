@@ -14,7 +14,7 @@ export const HomePage: React.FC = () => {
             <JsonLd includeFAQ={true} includeEvent={true} />
 
             {/* Hero - The Pain Point */}
-            <section className="min-h-screen flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-20 pt-24 sm:pt-28 pb-16 sm:pb-20 relative overflow-hidden">
+            <section className="min-h-screen flex flex-col justify-center px-5 sm:px-6 md:px-12 lg:px-20 pt-32 sm:pt-36 pb-16 sm:pb-20 relative overflow-hidden">
                 {/* Hero Image - Desktop: full-bleed right with gradient dissolution */}
                 <div className="absolute top-32 right-0 w-[50%] h-[75vh] hidden lg:block pointer-events-none select-none">
                     <div className="relative w-full h-full">
@@ -204,7 +204,7 @@ export const HomePage: React.FC = () => {
             </section>
 
             {/* About - Meet Shauna */}
-            <section id="about" className="py-20 md:py-32 px-6 md:px-12 lg:px-20 scroll-mt-24">
+            <section id="about" className="py-20 md:py-32 px-5 sm:px-6 md:px-12 lg:px-20 scroll-mt-24 overflow-visible">
                 <div className="max-w-[1200px] mx-auto">
                     <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
                         {/* Content - Shows FIRST on mobile, second on desktop */}
@@ -244,7 +244,7 @@ export const HomePage: React.FC = () => {
                             </div>
                         </div>
                         {/* Image - Shows SECOND on mobile, first on desktop */}
-                        <div className="relative order-2 md:order-1 mt-8 md:mt-0">
+                        <div className="relative order-2 md:order-1 mt-8 md:mt-0 pb-6 pr-2 md:pb-0 md:pr-0">
                             <div className="aspect-[3/4] rounded-sm overflow-hidden">
                                 <img
                                     src="/images/shauna.webp"
@@ -255,9 +255,9 @@ export const HomePage: React.FC = () => {
                                     loading="lazy"
                                 />
                             </div>
-                            <div className="absolute -bottom-4 -right-4 bg-white rounded-sm p-4 shadow-lg border border-olive/5">
-                                <p className="font-display text-lg text-olive">Hi, I'm {DATA.config.owner}.</p>
-                                <p className="font-mono text-xs text-olive/60 uppercase tracking-wider">Owner & Founder</p>
+                            <div className="absolute -bottom-2 right-0 md:-bottom-4 md:-right-4 bg-white rounded-sm p-3 sm:p-4 shadow-lg border border-olive/5">
+                                <p className="font-display text-base sm:text-lg text-olive">Hi, I'm {DATA.config.owner}.</p>
+                                <p className="font-mono text-[10px] sm:text-xs text-olive/60 uppercase tracking-wider">Owner & Founder</p>
                             </div>
                         </div>
                     </div>
