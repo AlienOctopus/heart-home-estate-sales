@@ -36,6 +36,15 @@ export const Header: React.FC = () => {
         }
     };
 
+    // Logo click - scroll to top if on home page, otherwise navigate home
+    const handleLogoClick = (e: React.MouseEvent) => {
+        setMenuOpen(false);
+        if (location.pathname === '/') {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
     // Handle scroll after navigation from another page
     useEffect(() => {
         if (location.state?.scrollToAbout && location.pathname === '/') {
@@ -69,7 +78,7 @@ export const Header: React.FC = () => {
                     `}
                 >
                     {/* Logo */}
-                    <Link to="/" className="flex items-center gap-3 group">
+                    <Link to="/" onClick={handleLogoClick} className="flex items-center gap-3 group">
                         <div className={`relative transition-all duration-300 ${scrolled ? 'w-9 h-9' : 'w-11 h-11'} rounded-full overflow-hidden`}>
                             <img
                                 src="/images/logo-badge.webp"
