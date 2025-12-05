@@ -15,43 +15,90 @@ export const HomePage: React.FC = () => {
 
             {/* Hero - The Pain Point */}
             <section className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-20 relative overflow-hidden">
+                {/* Hero Image - Desktop: floating right with editorial fade */}
+                <div className="absolute top-24 right-0 w-[42%] h-[80vh] hidden lg:block pointer-events-none select-none">
+                    <div className="relative w-full h-full">
+                        {/* Left edge fade into cream background */}
+                        <div className="absolute inset-y-0 left-0 w-48 bg-gradient-to-r from-cream via-cream/80 to-transparent z-10" />
+                        <img
+                            src="/images/treasures-flatlay.jpg"
+                            alt="Treasured heirlooms - vintage teacups, silver, handwritten letters"
+                            className="w-full h-full object-cover object-center opacity-90"
+                            style={{ filter: 'grayscale(0.25) contrast(0.96) brightness(1.02)' }}
+                        />
+                        {/* Bottom fade */}
+                        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-cream via-cream/70 to-transparent z-10" />
+                    </div>
+                </div>
+
                 <div className="max-w-[1400px] mx-auto w-full relative z-10">
                     {/* Main headline - Fixed scale, no vw units */}
-                    <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-10 max-w-5xl">
+                    <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.95] tracking-tighter text-olive mb-10 max-w-4xl">
                         <span className="block">For East Bay Families</span>
-                        <span className="block">Who Just Inherited a</span>
-                        <span className="block">House Full of <span className="text-sage italic">"Everything"</span></span>
+                        <span className="block">Who Just Inherited</span>
+                        <span className="block">a House Full of <span className="text-sage italic">"Everything"</span></span>
                     </h1>
 
-                    {/* The hook - emotional, specific - max-w-xl for proper line length */}
+                    {/* Mobile hero image - landscape version, full bleed */}
+                    <div className="lg:hidden mb-10 -mx-6 md:-mx-12">
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                            <img
+                                src="/images/treasures-flatlay.jpg"
+                                alt="Treasured heirlooms - vintage teacups, silver, handwritten letters"
+                                className="w-full h-full object-cover object-center"
+                                style={{ filter: 'grayscale(0.25) contrast(0.96) brightness(1.02)' }}
+                            />
+                            {/* Bottom fade into content */}
+                            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-cream to-transparent" />
+                        </div>
+                    </div>
+
+                    {/* The hook - emotional, specific */}
                     <div className="max-w-xl mb-16">
                         <p className="font-display text-2xl md:text-3xl lg:text-4xl text-olive/90 leading-snug tracking-tight mb-8">
                             You shouldn't have to spend the next 6 weekends sorting through your mother's china.
                         </p>
-                        <p className="text-lg md:text-xl text-olive/60 leading-relaxed">
-                            You're grieving. You're exhausted. And now you're standing in a 3,200 sq. ft. house 
-                            with 40 years of accumulated stuff—and somehow you're supposed to figure out what the 
-                            Henredon dining set is worth, who wants the silver, and what to do with the 47 boxes 
+                        <p className="text-lg md:text-xl text-olive/60 leading-relaxed mb-8">
+                            You're grieving. You're exhausted. And now you're standing in a 3,200 sq. ft. house
+                            with 40 years of accumulated stuff—and somehow you're supposed to figure out what the
+                            Henredon dining set is worth, who wants the silver, and what to do with the 47 boxes
                             in the garage labeled "miscellaneous."
                         </p>
+                        <a
+                            href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
+                            className="inline-flex items-center gap-3 bg-olive text-cream px-8 py-4 rounded-full font-medium hover:bg-olive-muted transition-colors group"
+                        >
+                            <Icon name="phone" s={18} />
+                            <span className="font-mono tracking-wide">{DATA.config.phone}</span>
+                        </a>
                     </div>
 
-                    {/* Scroll indicator - no animation */}
-                    <div className="flex items-center gap-3 text-olive/40">
+                    {/* Scroll indicator */}
+                    <button
+                        onClick={() => document.getElementById('permission')?.scrollIntoView({ behavior: 'smooth' })}
+                        className="flex items-center gap-3 text-olive/40 hover:text-olive/60 transition-colors cursor-pointer"
+                    >
                         <div className="w-px h-12 bg-olive/20"></div>
                         <span className="font-mono text-xs uppercase tracking-widest">Keep reading</span>
                         <Icon name="down" s={16} />
-                    </div>
+                    </button>
                 </div>
             </section>
 
             {/* The Permission Statement - increased padding */}
-            <section className="py-32 md:py-48 px-6 md:px-12 lg:px-20 bg-olive text-cream">
+            <section id="permission" className="py-32 md:py-48 px-6 md:px-12 lg:px-20 bg-olive text-cream scroll-mt-16">
                 <div className="max-w-[1000px] mx-auto text-center">
-                    <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-snug tracking-tight">
-                        You don't have time for this.<br/>
-                        <span className="text-cream/60">You shouldn't have to make time for this.</span>
+                    <p className="font-display text-3xl md:text-4xl lg:text-5xl leading-snug tracking-tight mb-10">
+                        Your family's legacy deserves expertise—<br/>
+                        <span className="text-cream/60">not a crash course in estate liquidation.</span>
                     </p>
+                    <a
+                        href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
+                        className="inline-flex items-center gap-3 text-sage hover:text-cream transition-colors"
+                    >
+                        <span className="font-mono text-sm uppercase tracking-widest">Free Consultation</span>
+                        <span className="font-display text-xl">{DATA.config.phone}</span>
+                    </a>
                 </div>
             </section>
 
@@ -122,7 +169,7 @@ export const HomePage: React.FC = () => {
                         <div className="relative">
                             <div className="aspect-[3/4] rounded-sm overflow-hidden">
                                 <img
-                                    src="/images/shauna-portrait.jpg"
+                                    src="/images/shauna.jpg"
                                     alt={`${DATA.config.owner} - ${DATA.config.legalName}`}
                                     className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
                                 />
@@ -217,7 +264,7 @@ export const HomePage: React.FC = () => {
                             Call {DATA.config.owner} directly.
                         </h2>
                         <p className="text-xl md:text-2xl text-cream/70 leading-relaxed">
-                            No voicemail maze. No "request a quote" form.<br/>
+                            No phone tag. No "request a quote" form.<br/>
                             Just a conversation with someone who's done this 200+ times.
                         </p>
                     </div>

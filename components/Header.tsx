@@ -68,17 +68,17 @@ export const Header: React.FC = () => {
                     {/* Logo */}
                     <Link to="/" className="flex items-center gap-2 group">
                         <svg
-                            className={`text-sage transition-all duration-300 group-hover:scale-110 ${scrolled ? 'w-5 h-5' : 'w-6 h-6'}`}
+                            className={`transition-all duration-300 group-hover:scale-110 ${scrolled ? 'w-5 h-5' : 'w-6 h-6'} ${menuOpen ? 'text-sage' : 'text-sage'}`}
                             viewBox="0 0 24 24"
                             fill="currentColor"
                         >
                             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                         </svg>
                         <div className={`flex flex-col leading-none transition-all duration-300 ${scrolled ? 'gap-0' : 'gap-0.5'}`}>
-                            <span className={`font-display font-semibold text-olive transition-all duration-300 ${scrolled ? 'text-[15px] md:text-base' : 'text-lg md:text-xl'}`}>
+                            <span className={`font-display font-semibold transition-all duration-300 ${scrolled ? 'text-[15px] md:text-base' : 'text-lg md:text-xl'} ${menuOpen ? 'text-cream' : 'text-olive'}`}>
                                 Heart & Home
                             </span>
-                            <span className={`font-mono uppercase tracking-[0.2em] text-olive/40 transition-all duration-300 ${scrolled ? 'text-[7px] md:text-[8px]' : 'text-[9px] md:text-[10px]'}`}>
+                            <span className={`font-mono uppercase tracking-[0.2em] transition-all duration-300 ${scrolled ? 'text-[7px] md:text-[8px]' : 'text-[9px] md:text-[10px]'} ${menuOpen ? 'text-cream/60' : 'text-olive/40'}`}>
                                 Estate Sales
                             </span>
                         </div>
@@ -148,14 +148,16 @@ export const Header: React.FC = () => {
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
                             className={`
                                 md:hidden flex items-center justify-center rounded-full transition-all duration-300
-                                ${scrolled
-                                    ? 'w-9 h-9 bg-olive text-cream'
-                                    : 'w-11 h-11 bg-olive text-cream shadow-sm'
+                                ${menuOpen
+                                    ? 'w-11 h-11 bg-sage text-cream'
+                                    : scrolled
+                                        ? 'w-9 h-9 bg-olive text-cream'
+                                        : 'w-11 h-11 bg-olive text-cream shadow-sm'
                                 }
                             `}
                             aria-label="Call us"
                         >
-                            <Icon name="phone" s={scrolled ? 16 : 18} />
+                            <Icon name="phone" s={scrolled && !menuOpen ? 16 : 18} />
                         </a>
 
                         {/* Mobile Toggle */}
@@ -163,15 +165,17 @@ export const Header: React.FC = () => {
                             onClick={() => setMenuOpen(!menuOpen)}
                             className={`
                                 md:hidden flex items-center justify-center rounded-full transition-all duration-300
-                                ${scrolled
-                                    ? 'w-9 h-9 text-olive hover:bg-olive/5'
-                                    : 'w-11 h-11 text-olive hover:bg-white/50'
+                                ${menuOpen
+                                    ? 'w-11 h-11 text-cream hover:bg-cream/10'
+                                    : scrolled
+                                        ? 'w-9 h-9 text-olive hover:bg-olive/5'
+                                        : 'w-11 h-11 text-olive hover:bg-white/50'
                                 }
                             `}
                             aria-label="Toggle Menu"
                         >
-                            <div className={`flex items-center justify-center transition-all duration-300 ${scrolled ? 'w-5 h-5' : 'w-6 h-6'}`}>
-                                {menuOpen ? <Icon name="x" s={scrolled ? 20 : 24} /> : <Icon name="menu" s={scrolled ? 20 : 24} />}
+                            <div className={`flex items-center justify-center transition-all duration-300 ${scrolled && !menuOpen ? 'w-5 h-5' : 'w-6 h-6'}`}>
+                                {menuOpen ? <Icon name="x" s={24} /> : <Icon name="menu" s={scrolled ? 20 : 24} />}
                             </div>
                         </button>
                     </div>
@@ -246,10 +250,10 @@ export const Header: React.FC = () => {
                             </div>
                         </a>
 
-                        <div className="grid grid-cols-2 gap-8 text-sm">
+                        <div className="grid grid-cols-1 gap-6 text-sm">
                             <div>
                                 <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mb-2">Email</div>
-                                <a href={`mailto:${DATA.config.email}`} className="font-display text-cream/80 hover:text-sage transition-colors">
+                                <a href={`mailto:${DATA.config.email}`} className="font-display text-cream/80 hover:text-sage transition-colors break-all">
                                     {DATA.config.email}
                                 </a>
                             </div>

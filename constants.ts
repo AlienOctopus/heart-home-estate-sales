@@ -82,28 +82,6 @@ export const DATA: AppData = {
                 image: "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&q=80&w=800"
             },
             { 
-                id: 4, 
-                title: "Oak Dining Set", 
-                desc: "Table + 6 chairs, seats 10", 
-                cat: "furniture",
-                image: "https://images.unsplash.com/photo-1503602642458-2321114453ad?auto=format&fit=crop&q=80&w=800"
-            },
-            { 
-                id: 5, 
-                title: "Brass Floor Lamp", 
-                desc: "Art deco, rewired, original shade", 
-                cat: "decor",
-                image: "https://images.unsplash.com/photo-1507473888900-52ea75561061?auto=format&fit=crop&q=80&w=800"
-            },
-            { 
-                id: 6, 
-                title: "Cast Iron Set", 
-                desc: "Lodge & Wagner, well-seasoned", 
-                cat: "kitchen", 
-                story: "These pans made Sunday breakfast for three generations.",
-                image: "https://images.unsplash.com/photo-1623653387945-2fd25214f8fc?auto=format&fit=crop&q=80&w=800"
-            },
-            { 
                 id: 7, 
                 title: "Vintage Cameras", 
                 desc: "Kodak, Polaroid collection", 
