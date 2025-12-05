@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { DATA } from '../constants';
 import { Icon } from './Icons';
@@ -6,19 +6,14 @@ import { Icon } from './Icons';
 export const Header: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const [isProgrammaticScroll, setIsProgrammaticScroll] = useState(false);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const handleScroll = () => {
-            // Don't activate scrolled state during programmatic scroll
-            if (isProgrammaticScroll) return;
-            setScrolled(window.scrollY > 50);
-        };
+        const handleScroll = () => setScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, [isProgrammaticScroll]);
+    }, []);
 
     useEffect(() => {
         if (menuOpen) document.body.style.overflow = 'hidden';
@@ -31,53 +26,25 @@ export const Header: React.FC = () => {
         setMenuOpen(false);
     }, [location]);
 
-    // Smooth scroll to About section
-    const scrollToAbout = useCallback((e: React.MouseEvent) => {
-        e.preventDefault();
+    // Scroll to About section
+    const scrollToAbout = () => {
         setMenuOpen(false);
-
         if (location.pathname !== '/') {
             navigate('/', { state: { scrollToAbout: true } });
         } else {
-            const aboutSection = document.getElementById('about');
-            if (aboutSection) {
-                // Disable scroll detection during programmatic scroll
-                setIsProgrammaticScroll(true);
-                aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // Re-enable after animation completes (~800ms for smooth scroll)
-                setTimeout(() => setIsProgrammaticScroll(false), 900);
-            }
+            document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
         }
-    }, [location.pathname, navigate]);
+    };
 
-    // Handle scroll after navigation
+    // Handle scroll after navigation from another page
     useEffect(() => {
         if (location.state?.scrollToAbout && location.pathname === '/') {
-            // Disable scroll detection during programmatic scroll
-            setIsProgrammaticScroll(true);
             setTimeout(() => {
-                const aboutSection = document.getElementById('about');
-                if (aboutSection) {
-                    aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-                // Re-enable after animation completes
-                setTimeout(() => setIsProgrammaticScroll(false), 900);
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
             }, 100);
-            // Clear the state
             window.history.replaceState({}, document.title);
         }
     }, [location]);
-
-    const navItems = [
-        { label: 'Services', to: '/', type: 'link' as const },
-        { label: 'About', to: '/#about', type: 'scroll' as const },
-        { label: 'Current Sale', to: '/sales', type: 'link' as const },
-    ];
-
-    const isActive = (item: typeof navItems[0]) => {
-        if (item.type === 'scroll') return false;
-        return location.pathname === item.to;
-    };
 
     return (
         <>
@@ -117,41 +84,31 @@ export const Header: React.FC = () => {
                         </div>
                     </Link>
 
-                    {/* Desktop Nav - Always visible, adapts to scroll state */}
-                    <nav className={`hidden md:flex items-center transition-all duration-300 ${scrolled ? 'gap-1' : 'gap-1'}`}>
-                        {navItems.map((item) => (
-                            item.type === 'scroll' ? (
-                                <button
-                                    key={item.to}
-                                    onClick={scrollToAbout}
-                                    className={`
-                                        px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
-                                        text-olive/60 hover:text-olive hover:bg-olive/[0.04]
-                                    `}
-                                >
-                                    {item.label}
-                                </button>
-                            ) : (
-                                <Link
-                                    key={item.to}
-                                    to={item.to}
-                                    className={`
-                                        px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
-                                        ${isActive(item)
-                                            ? 'text-olive bg-olive/[0.06]'
-                                            : 'text-olive/60 hover:text-olive hover:bg-olive/[0.04]'
-                                        }
-                                    `}
-                                >
-                                    {item.label}
-                                </Link>
-                            )
-                        ))}
+                    {/* Desktop Nav */}
+                    <nav className="hidden md:flex items-center gap-1">
+                        <button
+                            onClick={scrollToAbout}
+                            className="px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 text-olive/60 hover:text-olive hover:bg-olive/[0.04]"
+                        >
+                            About
+                        </button>
+                        <Link
+                            to="/sales"
+                            className={`
+                                px-4 py-2 rounded-full text-sm font-medium transition-all duration-200
+                                ${location.pathname === '/sales'
+                                    ? 'text-olive bg-olive/[0.06]'
+                                    : 'text-olive/60 hover:text-olive hover:bg-olive/[0.04]'
+                                }
+                            `}
+                        >
+                            Current Sale
+                        </Link>
 
                         {/* Separator */}
                         <div className={`h-5 w-px bg-olive/10 mx-2 transition-opacity duration-300 ${scrolled ? 'opacity-100' : 'opacity-60'}`} />
 
-                        {/* Get Notified - Special treatment as conversion action */}
+                        {/* Sale Alerts - Accent CTA for shoppers */}
                         <Link
                             to="/shop"
                             className={`
@@ -166,7 +123,7 @@ export const Header: React.FC = () => {
                                 <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
                                 <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
                             </svg>
-                            <span>Get Notified</span>
+                            <span>Sale Alerts</span>
                         </Link>
                     </nav>
 
@@ -236,45 +193,42 @@ export const Header: React.FC = () => {
 
                 <div className="h-full flex flex-col justify-center px-8 relative z-10 max-w-4xl mx-auto">
                     <nav className="flex flex-col gap-4">
-                        {[
-                            { label: 'Services', to: '/', type: 'link' as const },
-                            { label: 'About', to: '/#about', type: 'scroll' as const },
-                            { label: 'Current Sale', to: '/sales', type: 'link' as const },
-                            { label: 'Get Notified', to: '/shop', type: 'link' as const, accent: true },
-                        ].map((item, i) => (
-                            item.type === 'scroll' ? (
-                                <button
-                                    key={item.to}
-                                    onClick={scrollToAbout}
-                                    className={`
-                                        text-left font-display text-4xl sm:text-5xl md:text-6xl font-light
-                                        transition-all duration-300 opacity-0 animate-fade-up
-                                        text-cream/70 hover:text-sage
-                                    `}
-                                    style={{ animationDelay: `${200 + (i * 80)}ms`, animationFillMode: 'forwards' }}
-                                >
-                                    {item.label}
-                                </button>
-                            ) : (
-                                <Link
-                                    key={item.to}
-                                    to={item.to}
-                                    className={`
-                                        text-left font-display text-4xl sm:text-5xl md:text-6xl font-light
-                                        transition-all duration-300 opacity-0 animate-fade-up
-                                        ${item.accent
-                                            ? 'text-sage hover:text-sage-light'
-                                            : location.pathname === item.to
-                                                ? 'text-cream'
-                                                : 'text-cream/70 hover:text-sage'
-                                        }
-                                    `}
-                                    style={{ animationDelay: `${200 + (i * 80)}ms`, animationFillMode: 'forwards' }}
-                                >
-                                    {item.label}
-                                </Link>
-                            )
-                        ))}
+                        <Link
+                            to="/"
+                            className={`
+                                text-left font-display text-4xl sm:text-5xl md:text-6xl font-light
+                                transition-all duration-300 opacity-0 animate-fade-up
+                                ${location.pathname === '/' ? 'text-cream' : 'text-cream/70 hover:text-sage'}
+                            `}
+                            style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
+                        >
+                            Home
+                        </Link>
+                        <button
+                            onClick={scrollToAbout}
+                            className="text-left font-display text-4xl sm:text-5xl md:text-6xl font-light transition-all duration-300 opacity-0 animate-fade-up text-cream/70 hover:text-sage"
+                            style={{ animationDelay: '280ms', animationFillMode: 'forwards' }}
+                        >
+                            About
+                        </button>
+                        <Link
+                            to="/sales"
+                            className={`
+                                text-left font-display text-4xl sm:text-5xl md:text-6xl font-light
+                                transition-all duration-300 opacity-0 animate-fade-up
+                                ${location.pathname === '/sales' ? 'text-cream' : 'text-cream/70 hover:text-sage'}
+                            `}
+                            style={{ animationDelay: '360ms', animationFillMode: 'forwards' }}
+                        >
+                            Current Sale
+                        </Link>
+                        <Link
+                            to="/shop"
+                            className="text-left font-display text-4xl sm:text-5xl md:text-6xl font-light transition-all duration-300 opacity-0 animate-fade-up text-sage hover:text-sage-light"
+                            style={{ animationDelay: '440ms', animationFillMode: 'forwards' }}
+                        >
+                            Sale Alerts
+                        </Link>
                     </nav>
 
                     {/* Contact Info in Menu */}

@@ -35,27 +35,20 @@ export const ShopPage: React.FC = () => {
             <JsonLd includeFAQ={false} includeEvent={true} page="shop" />
 
             {/* Hero */}
-            <section className="pt-32 pb-20 px-6 md:px-12">
+            <section className="pt-32 pb-20 px-6 md:px-12 lg:px-20">
                 <div className="max-w-[1000px] mx-auto">
-                    <div className="mb-4">
-                        <Link to="/" className="text-sm text-olive/50 hover:text-olive transition-colors">
-                            ← Back to Heart & Home
-                        </Link>
-                    </div>
-
-                    <h1 className="font-display text-5xl md:text-7xl tracking-tight text-olive mb-6">
-                        Shop Our Sales
+                    <h1 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-olive mb-6">
+                        Get Sale Notifications
                     </h1>
-                    <p className="text-xl md:text-2xl text-olive/70 font-light leading-relaxed max-w-2xl mb-12">
-                        Find something worth keeping. Get notified when we announce new estate sales
-                        in {DATA.config.areaShort || 'your area'}.
+                    <p className="text-xl md:text-2xl text-olive/70 leading-relaxed max-w-xl mb-12">
+                        Be the first to know when we announce new estate sales
+                        in {DATA.config.areaShort || 'the East Bay'}.
                     </p>
 
                     {/* Email Capture - Primary CTA */}
-                    <div className="bg-white rounded-3xl p-8 md:p-12 border border-olive/5 max-w-xl mb-16">
+                    <div className="bg-white rounded-sm p-8 md:p-10 border border-olive/5 max-w-xl mb-16">
                         {!submitted ? (
                             <>
-                                <h2 className="font-display text-2xl text-olive mb-2">Get Sale Notifications</h2>
                                 <p className="text-olive/60 mb-6">We'll email you when we announce upcoming sales. No spam, just treasures.</p>
 
                                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -65,13 +58,13 @@ export const ShopPage: React.FC = () => {
                                             value={email}
                                             onChange={(e) => { setEmail(e.target.value); setError(''); }}
                                             placeholder="your@email.com"
-                                            className={`w-full px-6 py-4 rounded-xl border ${error ? 'border-red-400' : 'border-olive/10'} bg-cream focus:outline-none focus:border-olive transition-colors text-lg`}
+                                            className={`w-full px-5 py-4 rounded-sm border ${error ? 'border-red-400' : 'border-olive/10'} bg-cream focus:outline-none focus:border-olive transition-colors text-lg`}
                                         />
                                         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
                                     </div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-olive text-cream py-4 rounded-xl font-mono text-sm uppercase tracking-widest hover:bg-olive-muted transition-colors"
+                                        className="w-full bg-olive text-cream py-4 rounded-full font-mono text-sm uppercase tracking-widest hover:bg-olive-muted transition-colors"
                                     >
                                         Notify Me
                                     </button>
@@ -83,12 +76,10 @@ export const ShopPage: React.FC = () => {
                             </>
                         ) : (
                             <div className="text-center py-8">
-                                <div className="w-16 h-16 bg-sage/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <svg className="w-8 h-8 text-sage" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                                    </svg>
+                                <div className="w-16 h-16 bg-sage/20 rounded-sm flex items-center justify-center mx-auto mb-4">
+                                    <Icon name="check" s={32} className="text-sage" />
                                 </div>
-                                <h3 className="font-display text-2xl text-olive mb-2">You're on the list!</h3>
+                                <h3 className="font-display text-2xl text-olive mb-2">You're on the list.</h3>
                                 <p className="text-olive/60">We'll let you know when the next sale is announced.</p>
                             </div>
                         )}
@@ -97,25 +88,25 @@ export const ShopPage: React.FC = () => {
             </section>
 
             {/* Current/Upcoming Sale */}
-            <section className="py-16 px-6 md:px-12 bg-cream-dark">
+            <section className="py-16 px-6 md:px-12 lg:px-20 bg-cream-dark">
                 <div className="max-w-[1000px] mx-auto">
                     <h2 className="font-mono text-xs uppercase tracking-widest text-olive/50 mb-8">Upcoming Sale</h2>
 
                     <Link
                         to="/sales"
-                        className="block bg-white rounded-3xl p-8 md:p-12 border border-olive/5 hover:border-olive/20 transition-colors group"
+                        className="block bg-white rounded-sm p-8 md:p-10 border border-olive/5 hover:border-olive/20 transition-colors group"
                     >
                         <div className="flex flex-col md:flex-row md:items-center gap-8">
-                            <div className="flex-shrink-0 w-full md:w-48 h-48 rounded-2xl overflow-hidden bg-cream">
+                            <div className="flex-shrink-0 w-full md:w-48 h-48 rounded-sm overflow-hidden bg-cream">
                                 <img
                                     src="/images/treasures-flatlay.jpg"
                                     alt={DATA.sale.name}
-                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
                                 />
                             </div>
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-3">
-                                    <span className="w-2 h-2 rounded-full bg-sage animate-pulse"></span>
+                                    <span className="w-2 h-2 rounded-full bg-sage"></span>
                                     <span className="font-mono text-xs uppercase tracking-widest text-sage">Coming Up</span>
                                 </div>
                                 <h3 className="font-display text-3xl md:text-4xl text-olive mb-2 group-hover:text-sage transition-colors">
@@ -141,11 +132,11 @@ export const ShopPage: React.FC = () => {
             </section>
 
             {/* How Shopping Works */}
-            <section className="py-24 px-6 md:px-12">
+            <section className="py-24 px-6 md:px-12 lg:px-20">
                 <div className="max-w-[1000px] mx-auto">
-                    <h2 className="font-display text-4xl text-olive mb-12">Your First Estate Sale?</h2>
+                    <h2 className="font-display text-3xl md:text-4xl text-olive mb-12">Your First Estate Sale?</h2>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid md:grid-cols-2 gap-6">
                         {[
                             {
                                 title: "Arrive early for best selection",
@@ -164,9 +155,9 @@ export const ShopPage: React.FC = () => {
                                 desc: "We partner with local movers for same-day delivery. Flat $75 within 30 miles. Ask at checkout."
                             }
                         ].map((item, i) => (
-                            <div key={i} className="p-6 rounded-2xl border border-olive/10 hover:border-olive/20 transition-colors">
+                            <div key={i} className="p-6 rounded-sm border border-olive/10 hover:border-olive/20 transition-colors">
                                 <h3 className="font-display text-xl text-olive mb-2">{item.title}</h3>
-                                <p className="text-olive/60 font-light">{item.desc}</p>
+                                <p className="text-olive/60">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -174,19 +165,19 @@ export const ShopPage: React.FC = () => {
             </section>
 
             {/* Cross-sell to Families */}
-            <section className="py-16 px-6 md:px-12 bg-olive text-cream">
+            <section className="py-20 px-6 md:px-12 lg:px-20 bg-olive text-cream">
                 <div className="max-w-[800px] mx-auto text-center">
                     <h2 className="font-display text-3xl md:text-4xl mb-4">Have a home that needs our help?</h2>
-                    <p className="text-cream/70 mb-8">
+                    <p className="text-cream/60 mb-8 max-w-xl mx-auto">
                         We help families in {DATA.config.areaShort || DATA.config.area} transition with dignity.
                         Full-service estate sales, clean-outs, and more.
                     </p>
                     <Link
                         to="/"
-                        className="inline-flex items-center gap-2 bg-cream text-olive px-8 py-4 rounded-full font-medium hover:bg-white transition-colors"
+                        className="inline-flex items-center gap-3 bg-cream text-olive px-8 py-4 rounded-full font-medium hover:bg-white transition-colors group"
                     >
                         Learn About Our Services
-                        <Icon name="right" s={16} />
+                        <Icon name="right" s={16} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
             </section>

@@ -95,17 +95,16 @@ export const Footer: React.FC = () => {
                     <span>{DATA.config.creds}</span>
                 </div>
 
-                {/* Footer Brand - Typography only, no competing logo */}
-                <div className="border-b border-cream/10 mb-8 pb-12">
+                {/* Footer Brand - Compact, elegant */}
+                <div className="border-b border-cream/10 mb-8 pb-8">
                     <div className="flex flex-col items-center">
-                        {/* Simple heart accent */}
-                        <svg className="w-8 h-8 text-sage/60 mb-6" viewBox="0 0 24 24" fill="currentColor">
+                        <svg className="w-4 h-4 text-sage/60 mb-3" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                         </svg>
-                        <h2 className="font-display text-[12vw] md:text-[10vw] leading-[0.85] tracking-tight text-center text-cream opacity-90 select-none">
-                            HEART & HOME
+                        <h2 className="font-display text-2xl md:text-3xl tracking-tight text-center text-cream/90">
+                            Heart & Home
                         </h2>
-                        <p className="font-mono text-xs md:text-sm uppercase tracking-[0.3em] text-cream/40 mt-4">
+                        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40 mt-1">
                             Estate Sales
                         </p>
                     </div>

@@ -115,6 +115,62 @@ export const HomePage: React.FC = () => {
                 </div>
             </section>
 
+            {/* About - Meet Shauna */}
+            <section id="about" className="py-24 md:py-32 px-6 md:px-12 lg:px-20 scroll-mt-24">
+                <div className="max-w-[1200px] mx-auto">
+                    <div className="grid md:grid-cols-2 gap-16 items-center">
+                        <div className="relative">
+                            <div className="aspect-[3/4] rounded-sm overflow-hidden">
+                                <img
+                                    src="/images/shauna-portrait.jpg"
+                                    alt={`${DATA.config.owner} - ${DATA.config.legalName}`}
+                                    className="w-full h-full object-cover grayscale contrast-[0.92] brightness-[1.04] mix-blend-multiply opacity-90"
+                                />
+                            </div>
+                            <div className="absolute -bottom-4 -right-4 bg-white rounded-sm p-4 shadow-lg border border-olive/5">
+                                <p className="font-display text-lg text-olive">Hi, I'm {DATA.config.owner}.</p>
+                                <p className="font-mono text-xs text-olive/60 uppercase tracking-wider">Owner & Founder</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h2 className="font-display text-4xl md:text-5xl tracking-tight text-olive mb-6">
+                                You shouldn't have to<br/>
+                                <span className="text-sage italic">do this alone.</span>
+                            </h2>
+                            <div className="space-y-4 text-lg text-olive/70 leading-relaxed mb-8">
+                                <p>
+                                    Whether you're settling an estate, downsizing, or helping a parent transition—
+                                    the to-do list is endless. Price everything. Photograph everything.
+                                    Let strangers walk through. Answer a hundred questions.
+                                </p>
+                                <p>
+                                    <strong className="text-olive font-medium">That's our job, not yours.</strong>
+                                </p>
+                            </div>
+                            <div className="bg-cream-dark rounded-sm p-8 md:p-10 border border-olive/5">
+                                <h3 className="font-mono text-xs uppercase tracking-widest text-sage mb-6">What We Handle</h3>
+                                <ul className="space-y-4">
+                                    {[
+                                        "Sorting, organizing, and staging the entire home",
+                                        "Researching and pricing every item fairly",
+                                        "Professional photography and marketing",
+                                        "Managing the sale—all the people, all the questions",
+                                        "Clean-out and donation coordination after",
+                                    ].map((item, i) => (
+                                        <li key={i} className="flex items-start gap-3 text-olive/80">
+                                            <svg className="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                                            </svg>
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* The Distinction */}
             <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-cream-dark">
                 <div className="max-w-[900px] mx-auto">
