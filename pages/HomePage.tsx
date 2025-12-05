@@ -318,7 +318,7 @@ export const HomePage: React.FC = () => {
             <Testimonials />
 
             {/* Final CTA - Phone First, No Forms */}
-            <section className="py-20 md:py-32 px-6 md:px-12 lg:px-20 text-cream" style={{ backgroundColor: '#393821' }}>
+            <section className="py-20 md:py-32 px-6 md:px-12 lg:px-20 text-cream" style={{ backgroundColor: '#a1997e' }}>
                 <div className="max-w-[900px] mx-auto">
                     <div className="mb-10 md:mb-12">
                         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4 md:mb-6">
