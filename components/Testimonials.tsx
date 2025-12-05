@@ -34,7 +34,7 @@ export const Testimonials: React.FC = () => {
                 </div>
 
                 {/* Quote Display */}
-                <div className="relative min-h-[240px] sm:min-h-[260px] md:min-h-[240px]">
+                <div className="relative min-h-[180px] sm:min-h-[220px] md:min-h-[240px]">
                     {DATA.testimonials.map((t, i) => (
                         <div
                             key={i}
