@@ -4,7 +4,7 @@ import { DATA } from '../constants';
 interface JsonLdProps {
     includeFAQ?: boolean;
     includeEvent?: boolean;
-    page?: 'home' | 'sales' | 'shop';
+    page?: 'home' | 'sales' | 'shop' | 'about';
 }
 
 export const JsonLd: React.FC<JsonLdProps> = ({
@@ -289,6 +289,8 @@ export const JsonLd: React.FC<JsonLdProps> = ({
         breadcrumbItems.push({ position: 2, name: "Current Sales", item: `${baseUrl}/sales` });
     } else if (page === 'shop') {
         breadcrumbItems.push({ position: 2, name: "Sale Alerts", item: `${baseUrl}/alerts` });
+    } else if (page === 'about') {
+        breadcrumbItems.push({ position: 2, name: "About Us", item: `${baseUrl}/about` });
     }
 
     const breadcrumb = {
@@ -359,7 +361,8 @@ function getPageTitle(page: string, businessName: string): string {
     const titles: Record<string, string> = {
         home: `${businessName} | Full-Service Estate Sales | Brentwood, CA`,
         sales: `Current & Upcoming Estate Sales | ${businessName}`,
-        shop: `Shop Estate Sale Items | ${businessName}`
+        shop: `Shop Estate Sale Items | ${businessName}`,
+        about: `About Us | Our Story & Values | ${businessName}`
     };
     return titles[page] || businessName;
 }
@@ -369,7 +372,8 @@ function getPageDescription(page: string, area: string): string {
     const descriptions: Record<string, string> = {
         home: `Full-service estate sales for ${area}. We handle pricing, staging, photography, and the entire sale. Bonded & insured. Free consultation.`,
         sales: `Browse current and upcoming estate sales in ${area}. View items, dates, and locations for all Heart & Home estate sales.`,
-        shop: `Shop quality items from estate sales in ${area}. Furniture, antiques, collectibles, and household goods.`
+        shop: `Shop quality items from estate sales in ${area}. Furniture, antiques, collectibles, and household goods.`,
+        about: `Meet Shauna and the family behind Heart & Home Estate Sales. Learn about our values, our team of experts, and why we care so deeply about serving the East Bay community.`
     };
     return descriptions[page] || descriptions.home;
 }
