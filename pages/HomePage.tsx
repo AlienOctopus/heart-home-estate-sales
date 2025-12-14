@@ -47,15 +47,12 @@ export const HomePage: React.FC = () => {
 
                     {/* Main headline - bold weight for impact */}
                     <h1 className="font-display font-semibold text-[2.5rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[7rem] leading-[0.9] sm:leading-[0.95] tracking-tighter text-olive mb-5 sm:mb-6 max-w-4xl">
-                        <span className="block">This Is the Part</span>
-                        <span className="block">No One Prepares</span>
-                        <span className="block">You For</span>
+                        <span className="block">Estate Sales</span>
+                        <span className="block">Handled with Heart</span>
                     </h1>
 
                     {/* Accent line */}
-                    <p className="font-display text-lg sm:text-2xl md:text-3xl text-sage italic mb-8 sm:mb-10 max-w-2xl">
-                        Not the funeral. Not the paperwork.
-                    </p>
+
 
                     {/* Mobile hero image - landscape version, full bleed */}
                     <div className="lg:hidden mb-8 sm:mb-10 -mx-5 sm:-mx-6 md:-mx-12">
@@ -77,14 +74,14 @@ export const HomePage: React.FC = () => {
                     {/* The hook - emotional, specific */}
                     <div className="max-w-xl mb-12 sm:mb-16">
                         <p className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl text-olive font-medium leading-snug tracking-tight mb-5 sm:mb-6">
-                            But standing in that living room, realizing a lifetime of everything is now yours to figure out.
+                            Heart & Home Estate Sales is a family-owned, full-service estate sale company serving the East Bay and surrounding areas.
                         </p>
                         <p className="text-base sm:text-lg md:text-xl text-olive/60 leading-relaxed mb-6 sm:mb-8">
-                            The furniture. The china. The boxes in the garage. Somehow you're supposed to sort it, price it, and sell it—while you're still dealing with everything else. You don't have to do this alone.
+                            We handle every detail with care, transparency, and respect—so you don't have to.
                         </p>
                         {/* Primary CTA - For families needing help */}
                         <div className="mb-2">
-                            <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-olive/50 font-medium">Private Consultation</span>
+                            <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-olive/50 font-medium">Personal Consultation</span>
                         </div>
                         <a
                             href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
@@ -102,8 +99,8 @@ export const HomePage: React.FC = () => {
                                 className="inline-flex items-center gap-2 text-sage hover:text-olive transition-colors text-sm font-medium group py-3 -my-3 pr-2"
                             >
                                 <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
                                 </svg>
                                 <span>Get notified about upcoming sales</span>
                                 <Icon name="right" s={14} className="group-hover:translate-x-1 transition-transform flex-shrink-0" />
@@ -127,14 +124,14 @@ export const HomePage: React.FC = () => {
             <section id="permission" className="py-20 sm:py-24 md:py-48 px-5 sm:px-6 md:px-12 lg:px-20 bg-olive text-cream scroll-mt-16">
                 <div className="max-w-[1000px] mx-auto text-center">
                     <p className="font-display text-xl sm:text-2xl md:text-4xl lg:text-5xl leading-snug tracking-tight mb-8 md:mb-10">
-                        Your family's legacy deserves expertise—
-                        <span className="text-cream/60 block mt-1 sm:mt-0 sm:inline"> not a crash course in estate liquidation.</span>
+                        Your family's legacy deserves experienced, caring hands
+                        <span className="text-cream/60 block mt-1 sm:mt-0 sm:inline"></span>
                     </p>
                     <a
                         href={`tel:${DATA.config.phone.replace(/\D/g, '')}`}
                         className="inline-flex flex-col sm:flex-row items-center gap-1.5 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-sage/50 hover:border-sage hover:bg-sage/10 transition-all"
                     >
-                        <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-sage font-medium">Private Consultation</span>
+                        <span className="text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest text-sage font-medium">Personal Consultation</span>
                         <span className="text-lg sm:text-xl text-cream tracking-wide tabular-nums">{DATA.config.phone}</span>
                     </a>
                 </div>
@@ -146,28 +143,28 @@ export const HomePage: React.FC = () => {
                     <div>
                         <div className="mb-16">
                             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-olive mb-4">
-                                Here's what happens<br/>
-                                <span className="text-sage italic">when you call us:</span>
+                                Your first step<br />
+                                <span className="text-sage italic">with heart & home:</span>
                             </h2>
                         </div>
 
                         <div className="space-y-0">
                             {[
                                 {
-                                    title: "We walk the house with you—once.",
-                                    desc: "You tell us what you're keeping, what's going to family, what's off-limits. That's the last decision you have to make."
+                                    title: "We walk through the home together one time.",
+                                    desc: "You let us know what you're keeping, what's staying with family, and what's off-limits. After that, you don't have to make any more decisions—we've got it."
                                 },
                                 {
-                                    title: "We price everything.",
-                                    desc: "Furniture, jewelry, art, tools, the weird stuff in the attic. We've sold $4M+ in East Bay estates. We know what it's worth and who's buying."
+                                    title: "We carefully price everything.",
+                                    desc: "Furniture, jewelry, art, tools, even the forgotten treasures tucked away in the attic. With over $4M in East Bay estate sales, we know what things are worth and how to connect them with the right buyers."
                                 },
                                 {
-                                    title: "We run the sale.",
-                                    desc: "The strangers come to us, not you. You don't have to be there. You don't have to watch."
+                                    title: "We handle the entire sale for you.",
+                                    desc: "Buyers interact with our team—not you—so you're free to step away and have peace of mind."
                                 },
                                 {
                                     title: "You get a check.",
-                                    desc: "Detailed accounting of every item sold. No surprises. Most families are surprised—in a good way."
+                                    desc: "When the sale is complete, you receive a check along with a clear, detailed breakdown of everything sold. No surprises—just clarity. Many families are pleasantly surprised by the outcome."
                                 }
                             ].map((step, i) => (
                                 <div key={i} className="group border-t border-olive/10 first:border-t-0 py-8 md:py-10">
@@ -215,27 +212,25 @@ export const HomePage: React.FC = () => {
                             </h2>
                             <div className="space-y-4 text-base sm:text-lg text-olive/70 leading-relaxed mb-8">
                                 <p>
-                                    Whether you're settling an estate, downsizing, or helping a parent transition—
-                                    the to-do list is endless. Price everything. Photograph everything.
-                                    Let strangers walk through. Answer a hundred questions.
+                                    Whether you're settling an estate, downsizing, or helping a parent transition, the to-do list can feel endless—pricing, photographing, welcoming buyers, answering countless questions.
+                                    <br />We're here to carry that weight with you.
                                 </p>
-                                <p>
-                                    <strong className="text-olive font-medium">That's our job, not yours.</strong>
-                                </p>
+
                             </div>
                             <div className="bg-cream-dark rounded-sm p-6 sm:p-8 md:p-10 border border-olive/5">
                                 <h3 className="text-xs uppercase tracking-widest text-sage mb-5 md:mb-6 font-semibold">What We Handle</h3>
                                 <ul className="space-y-3 sm:space-y-4">
                                     {[
-                                        "Sorting, organizing, and staging the entire home",
-                                        "Researching and pricing every item fairly",
-                                        "Professional photography and marketing",
-                                        "Managing the sale—all the people, all the questions",
-                                        "Clean-out and donation coordination after",
+                                        "Thoughtfully sorting, organizing, and staging the entire home",
+                                        "Researching and fairly pricing each item with care",
+                                        "Professional photography and marketing to the right buyers",
+                                        "Managing the sale from start to finish—all the people, all the questions",
+                                        "Appraisals for antiques, art, jewelry, and collector pieces through trusted experts",
+                                        "Coordinating clean-out services and donations once the sale is complete",
                                     ].map((item, i) => (
                                         <li key={i} className="flex items-start gap-3 text-sm sm:text-base text-olive/80">
                                             <svg className="w-5 h-5 text-sage mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                             </svg>
                                             {item}
                                         </li>
@@ -285,14 +280,12 @@ export const HomePage: React.FC = () => {
                         <div className="space-y-8 text-lg md:text-xl text-olive/80 leading-relaxed">
                             <p>
                                 <strong className="font-display text-2xl md:text-3xl text-olive block mb-4">
-                                    This is not a "clean-out" service.
+                                    We're not here to simply clear a house—we're here to honor what's inside it.
                                 </strong>
-                                We don't haul your parents' life to a dump. We sell it—to collectors, dealers,
-                                and neighbors who'll value it.
+                                We connect your family's belongings with people who appreciate them, from collectors to neighbors.
                             </p>
                             <p>
-                                The house empties. You get paid. And you never had to argue with your brother
-                                about the grandfather clock.
+                                The home empties, you're compensated, and you don't have to navigate tough family decisions alone
                             </p>
                         </div>
                     </div>
@@ -303,10 +296,10 @@ export const HomePage: React.FC = () => {
             <section className="py-24 md:py-32 px-6 md:px-12 lg:px-20">
                 <div className="max-w-[900px] mx-auto">
                     <p className="text-lg md:text-xl text-olive/70 leading-relaxed mb-8">
-                        We serve <span className="font-medium text-olive">Blackhawk</span>, <span className="font-medium text-olive">Danville</span>, <span className="font-medium text-olive">Alamo</span>, <span className="font-medium text-olive">Walnut Creek</span>, <span className="font-medium text-olive">Brentwood</span>, <span className="font-medium text-olive">Pleasanton</span>, <span className="font-medium text-olive">Ruby Hill</span>, and <span className="font-medium text-olive">Livermore</span>—and we're selective about the estates we take.
+                        We proudly serve the Bay Area, including Contra Costa and Alameda Counties—and we're happy to travel to surrounding areas.
                     </p>
                     <p className="font-display text-2xl md:text-3xl text-olive tracking-tight leading-snug">
-                        If the house is worth doing right, we should talk.
+                        If this feels like something that deserves to be done right, we'd love to talk
                     </p>
                 </div>
             </section>
@@ -326,7 +319,7 @@ export const HomePage: React.FC = () => {
                         </h2>
                         <p className="text-lg sm:text-xl md:text-2xl text-cream/70 leading-relaxed">
                             No phone tag. No "request a quote" form.
-                            <span className="block sm:inline"> Just a conversation with someone who's done this 200+ times.</span>
+                            <span className="block sm:inline"> Just a real conversation with someone who's helped families through this hundreds of times</span>
                         </p>
                     </div>
 
@@ -344,19 +337,19 @@ export const HomePage: React.FC = () => {
                     <div className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 sm:gap-6 md:gap-8 text-sm text-cream/50">
                         <span className="flex items-center gap-2">
                             <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
                             Bonded & Insured
                         </span>
                         <span className="flex items-center gap-2">
                             <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
                             Family-Owned
                         </span>
                         <span className="flex items-center gap-2">
                             <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
                             Based in {DATA.config.baseCity}
                         </span>
