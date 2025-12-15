@@ -57,9 +57,18 @@ export default async function handler(
                 email_address: cleanEmail,
                 status: 'subscribed',
                 merge_fields: {
-                    ZIP: cleanZip,
                     FNAME: FNAME,
-                    LNAME: LNAME
+                    LNAME: LNAME,
+                    // Send to standard Address field (requires all parts, so we use placeholders)
+                    ADDRESS: {
+                        addr1: '-',
+                        city: '-',
+                        state: '-',
+                        zip: cleanZip,
+                        country: 'US'
+                    },
+                    // Also send to custom ZIP field as backup/if configured
+                    ZIP: cleanZip
                 },
             }),
         });
