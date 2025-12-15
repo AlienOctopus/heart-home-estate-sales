@@ -8,6 +8,7 @@ import { JsonLd } from '../components/JsonLd';
 // Alerts page - email capture + upcoming sales for shoppers
 export const AlertsPage: React.FC = () => {
     const [zipCode, setZipCode] = useState('');
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
@@ -19,14 +20,25 @@ export const AlertsPage: React.FC = () => {
             return;
         }
 
-        // In production, this would submit to your email service
-        // For now, simulate success
         try {
-            // await fetch('/api/subscribe', { method: 'POST', body: JSON.stringify({ email }) });
+            const res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, zipCode, name }),
+            });
+
+            const data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.error || 'Something went wrong');
+            }
+
             setSubmitted(true);
             setError('');
-        } catch {
-            setError('Something went wrong. Try again?');
+        } catch (err: any) {
+            setError(err.message || 'Something went wrong. Try again?');
         }
     };
 
@@ -64,6 +76,17 @@ export const AlertsPage: React.FC = () => {
                                             value={zipCode}
                                             onChange={(e) => { setZipCode(e.target.value.replace(/\D/g, '')); setError(''); }}
                                             placeholder="94513"
+                                            className="w-full px-5 py-4 rounded-sm border border-olive/10 bg-cream focus:outline-none focus:border-olive transition-colors text-lg"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label htmlFor="name" className="block text-sm font-medium text-olive/70 mb-2">My Name</label>
+                                        <input
+                                            id="name"
+                                            type="text"
+                                            value={name}
+                                            onChange={(e) => { setName(e.target.value); setError(''); }}
+                                            placeholder="Jane Doe"
                                             className="w-full px-5 py-4 rounded-sm border border-olive/10 bg-cream focus:outline-none focus:border-olive transition-colors text-lg"
                                         />
                                     </div>
