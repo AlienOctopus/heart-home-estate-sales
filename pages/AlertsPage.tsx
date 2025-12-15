@@ -13,6 +13,8 @@ export const AlertsPage: React.FC = () => {
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState('');
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!email.trim() || !email.includes('@')) {
@@ -20,6 +22,7 @@ export const AlertsPage: React.FC = () => {
             return;
         }
 
+        setIsLoading(true);
         try {
             const res = await fetch('/api/subscribe', {
                 method: 'POST',
@@ -39,6 +42,8 @@ export const AlertsPage: React.FC = () => {
             setError('');
         } catch (err: any) {
             setError(err.message || 'Something went wrong. Try again?');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -64,49 +69,64 @@ export const AlertsPage: React.FC = () => {
                             <>
                                 <p className="text-olive/60 mb-6">We'll email you when we announce upcoming sales. No spam, just treasures.</p>
 
-                                <form onSubmit={handleSubmit} className="space-y-4">
-                                    <div>
-                                        <label htmlFor="zipCode" className="block text-sm font-medium text-olive/70 mb-2">Zip Code</label>
-                                        <input
-                                            id="zipCode"
-                                            type="text"
-                                            inputMode="numeric"
-                                            pattern="[0-9]{5}"
-                                            maxLength={5}
-                                            value={zipCode}
-                                            onChange={(e) => { setZipCode(e.target.value.replace(/\D/g, '')); setError(''); }}
-                                            placeholder="94513"
-                                            className="w-full px-5 py-4 rounded-sm border border-olive/10 bg-cream focus:outline-none focus:border-olive transition-colors text-lg"
-                                        />
+                                <form onSubmit={handleSubmit} className="space-y-6">
+                                    <div className="grid gap-6 md:grid-cols-2">
+                                        <div className="md:col-span-1">
+                                            <label htmlFor="zipCode" className="block text-xs font-bold text-olive/50 mb-2 uppercase tracking-widest">Zip Code</label>
+                                            <input
+                                                id="zipCode"
+                                                name="postal-code"
+                                                autoComplete="postal-code"
+                                                type="text"
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
+                                                maxLength={5}
+                                                value={zipCode}
+                                                onChange={(e) => { setZipCode(e.target.value.replace(/\D/g, '')); setError(''); }}
+                                                placeholder="94513"
+                                                className="w-full px-5 py-4 rounded-sm border border-olive/10 bg-cream focus:outline-none focus:border-olive focus:ring-1 focus:ring-olive/20 transition-all text-lg placeholder:text-olive/20"
+                                            />
+                                        </div>
+                                        <div className="md:col-span-1">
+                                            <label htmlFor="name" className="block text-xs font-bold text-olive/50 mb-2 uppercase tracking-widest">Full Name</label>
+                                            <input
+                                                id="name"
+                                                name="name"
+                                                autoComplete="name"
+                                                type="text"
+                                                value={name}
+                                                onChange={(e) => { setName(e.target.value); setError(''); }}
+                                                placeholder="Jane Doe"
+                                                className="w-full px-5 py-4 rounded-sm border border-olive/10 bg-cream focus:outline-none focus:border-olive focus:ring-1 focus:ring-olive/20 transition-all text-lg placeholder:text-olive/20"
+                                            />
+                                        </div>
                                     </div>
                                     <div>
-                                        <label htmlFor="name" className="block text-sm font-medium text-olive/70 mb-2">My Name</label>
-                                        <input
-                                            id="name"
-                                            type="text"
-                                            value={name}
-                                            onChange={(e) => { setName(e.target.value); setError(''); }}
-                                            placeholder="Jane Doe"
-                                            className="w-full px-5 py-4 rounded-sm border border-olive/10 bg-cream focus:outline-none focus:border-olive transition-colors text-lg"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium text-olive/70 mb-2">Email Address</label>
+                                        <label htmlFor="email" className="block text-xs font-bold text-olive/50 mb-2 uppercase tracking-widest">Email Address</label>
                                         <input
                                             id="email"
+                                            name="email"
+                                            autoComplete="email"
                                             type="email"
                                             value={email}
                                             onChange={(e) => { setEmail(e.target.value); setError(''); }}
-                                            placeholder="your@email.com"
-                                            className={`w-full px-5 py-4 rounded-sm border ${error ? 'border-red-400' : 'border-olive/10'} bg-cream focus:outline-none focus:border-olive transition-colors text-lg`}
+                                            placeholder="jane@example.com"
+                                            className={`w-full px-5 py-4 rounded-sm border ${error ? 'border-red-400 focus:border-red-400 focus:ring-red-100' : 'border-olive/10 bg-cream focus:border-olive focus:ring-olive/20'} focus:outline-none focus:ring-1 transition-all text-lg placeholder:text-olive/20`}
                                         />
-                                        {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+                                        {error && <p className="text-red-500 text-sm mt-2 animate-pulse">{error}</p>}
                                     </div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-olive text-cream py-4 rounded-full text-sm font-medium uppercase tracking-widest hover:bg-olive-muted transition-colors"
+                                        disabled={isLoading || submitted}
+                                        className="w-full bg-olive text-cream py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-olive-muted active:scale-[0.99] transition-all disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
                                     >
-                                        Notify Me
+                                        {isLoading ? (
+                                            'Processing...'
+                                        ) : (
+                                            <>
+                                                Notify Me <Icon name="right" s={14} />
+                                            </>
+                                        )}
                                     </button>
                                 </form>
 
